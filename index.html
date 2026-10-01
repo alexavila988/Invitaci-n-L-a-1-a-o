@@ -1,0 +1,418 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Invitación Toy Story</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      background: #4da6e8;
+    }
+
+    /* =========================
+       PANTALLA INICIAL
+       ========================= */
+
+    .start-screen {
+      position: fixed;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      background-image: url("fondo toys story.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      z-index: 10;
+
+      cursor: pointer;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+
+      transition:
+        opacity 0.8s ease,
+        visibility 0.8s ease;
+    }
+
+    .start-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* =========================
+       PULSA
+       ========================= */
+
+    .titulo {
+      position: relative;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 1px;
+
+      transform: translateY(5px);
+
+      animation: tituloFlota 2s ease-in-out infinite;
+    }
+
+    .letra {
+      display: block;
+
+      font-family:
+        "Arial Black",
+        Impact,
+        sans-serif;
+
+      font-size: clamp(62px, 18vw, 125px);
+
+      font-weight: 900;
+      line-height: 0.9;
+
+      color: #ffffff;
+
+      -webkit-text-stroke: 3px #174c91;
+
+      text-shadow:
+        0 3px 0 #174c91,
+        3px 5px 0 #e4a900,
+        5px 7px 0 #174c91,
+        0 0 12px rgba(255,255,255,0.7);
+
+      transform-origin: center bottom;
+
+      animation: letraMovimiento 3s ease-in-out infinite;
+    }
+
+    /*
+      Cada letra se mueve ligeramente diferente,
+      pero TODAS conservan exactamente el mismo estilo.
+    */
+
+    .letra:nth-child(1) {
+      animation-delay: -0.2s;
+    }
+
+    .letra:nth-child(2) {
+      animation-delay: -0.8s;
+    }
+
+    .letra:nth-child(3) {
+      animation-delay: -1.4s;
+    }
+
+    .letra:nth-child(4) {
+      animation-delay: -2s;
+    }
+
+    .letra:nth-child(5) {
+      animation-delay: -2.6s;
+    }
+
+    @keyframes letraMovimiento {
+
+      0%, 100% {
+        transform: rotate(3deg);
+      }
+
+      50% {
+        transform: rotate(-3deg);
+      }
+
+    }
+
+    @keyframes tituloFlota {
+
+      0%, 100% {
+        transform: translateY(5px);
+      }
+
+      50% {
+        transform: translateY(-5px);
+      }
+
+    }
+
+    /* =========================
+       ESTRELLAS
+       ========================= */
+
+    .stars {
+      position: absolute;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+
+      color: #ffffff;
+
+      line-height: 1;
+
+      text-shadow:
+        0 0 5px #ffffff,
+        0 0 12px #ffe66d;
+
+      animation: brillo 2.2s ease-in-out infinite;
+    }
+
+    .s1 {
+      top: 16%;
+      left: 12%;
+      font-size: 24px;
+      animation-delay: .2s;
+    }
+
+    .s2 {
+      top: 27%;
+      right: 14%;
+      font-size: 14px;
+      animation-delay: 1s;
+    }
+
+    .s3 {
+      top: 43%;
+      left: 7%;
+      font-size: 11px;
+      animation-delay: .6s;
+    }
+
+    .s4 {
+      top: 51%;
+      right: 8%;
+      font-size: 25px;
+      animation-delay: 1.4s;
+    }
+
+    .s5 {
+      bottom: 21%;
+      left: 17%;
+      font-size: 15px;
+      animation-delay: .9s;
+    }
+
+    .s6 {
+      bottom: 15%;
+      right: 18%;
+      font-size: 19px;
+      animation-delay: 1.8s;
+    }
+
+    .s7 {
+      top: 13%;
+      right: 34%;
+      font-size: 10px;
+      animation-delay: .4s;
+    }
+
+    .s8 {
+      bottom: 31%;
+      left: 5%;
+      font-size: 9px;
+      animation-delay: 1.2s;
+    }
+
+    .s9 {
+      bottom: 12%;
+      right: 6%;
+      font-size: 12px;
+      animation-delay: .7s;
+    }
+
+    .s10 {
+      top: 36%;
+      left: 24%;
+      font-size: 8px;
+      animation-delay: 1.6s;
+    }
+
+    @keyframes brillo {
+
+      0%, 100% {
+        opacity: .3;
+        transform: scale(.7) rotate(0deg);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.25) rotate(15deg);
+      }
+
+    }
+
+    /* =========================
+       SEGUNDA PANTALLA
+       ========================= */
+
+    .toy-screen {
+      position: fixed;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      background-image: url("caja juguetes.png");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      opacity: 0;
+
+      z-index: 1;
+
+      transition: opacity .8s ease;
+    }
+
+    .toy-screen.show {
+      opacity: 1;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Segunda pantalla -->
+  <div class="toy-screen" id="toyScreen"></div>
+
+
+  <!-- Pantalla inicial -->
+  <div class="start-screen" id="startScreen">
+
+    <!-- Estrellas -->
+    <div class="stars">
+
+      <span class="star s1">✦</span>
+      <span class="star s2">✦</span>
+      <span class="star s3">✦</span>
+      <span class="star s4">✦</span>
+      <span class="star s5">✦</span>
+      <span class="star s6">✦</span>
+      <span class="star s7">✦</span>
+      <span class="star s8">✦</span>
+      <span class="star s9">✦</span>
+      <span class="star s10">✦</span>
+
+    </div>
+
+
+    <!-- PULSA -->
+    <div class="titulo">
+
+      <span class="letra">P</span>
+      <span class="letra">U</span>
+      <span class="letra">L</span>
+      <span class="letra">S</span>
+      <span class="letra">A</span>
+
+    </div>
+
+  </div>
+
+
+  <!-- Música -->
+  <audio
+    id="music"
+    preload="auto"
+    playsinline
+    src="Toys Story.mp3">
+  </audio>
+
+
+  <script>
+
+    const startScreen =
+      document.getElementById("startScreen");
+
+    const toyScreen =
+      document.getElementById("toyScreen");
+
+    const music =
+      document.getElementById("music");
+
+    let opened = false;
+
+
+    /*
+      CLICK se activa directamente por el toque
+      del usuario en el celular.
+    */
+
+    startScreen.addEventListener("click", function () {
+
+      if (opened) return;
+
+      opened = true;
+
+
+      /*
+        La reproducción ocurre directamente
+        dentro del evento del usuario.
+      */
+
+      music.currentTime = 0;
+
+      music.play()
+        .then(() => {
+          console.log("Música iniciada");
+        })
+        .catch((error) => {
+          console.log("No se pudo iniciar la música:", error);
+        });
+
+
+      /*
+        Mostrar la siguiente pantalla
+      */
+
+      toyScreen.classList.add("show");
+
+
+      /*
+        Quitar pantalla inicial
+      */
+
+      setTimeout(() => {
+
+        startScreen.classList.add("hidden");
+
+      }, 250);
+
+    }, {
+      once: true
+    });
+
+  </script>
+
+</body>
+</html>
+```
