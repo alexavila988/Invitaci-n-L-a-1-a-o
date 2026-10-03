@@ -635,6 +635,36 @@ html,body{
 
 
 /* =========================================================
+   ZONA TÁCTIL DE LILYPAD
+   ========================================================= */
+
+.lilypad-link{
+    position:absolute;
+
+    /*
+       ZONA INVISIBLE SOBRE LILYPAD
+
+       Parte inferior central de la invitación.
+       Se puede ajustar fácilmente si es necesario.
+    */
+
+    left:35%;
+    top:70%;
+    width:30%;
+    height:17%;
+
+    z-index:20;
+
+    background:transparent;
+
+    cursor:pointer;
+
+    -webkit-tap-highlight-color:transparent;
+    tap-highlight-color:transparent;
+}
+
+
+/* =========================================================
    CONFETI
    ========================================================= */
 
@@ -764,6 +794,7 @@ html,body{
         margin-top:25px;
         padding:10px 17px;
     }
+
 }
 
 </style>
@@ -884,6 +915,19 @@ html,body{
         class="invitation-image"
         alt="Invitación de cumpleaños"
     >
+
+    <!--
+        ZONA INVISIBLE DE LILYPAD
+        Al tocar esta zona se abre Google Maps.
+    -->
+
+    <a
+        class="lilypad-link"
+        href="https://maps.app.goo.gl/ErKKQbnFPtNkmCkM7"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Abrir ubicación en Google Maps"
+    ></a>
 
 </div>
 
