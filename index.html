@@ -720,7 +720,7 @@ html,body{
 
 /* =========================================
    SEGUNDA PÁGINA
-   IMAGEN: pagina 2.png
+   AHORA FUNCIONA COMO LA PRIMERA
 ========================================= */
 
 .toy-screen{
@@ -738,7 +738,7 @@ html,body{
     justify-content:center;
     align-items:center;
 
-    overflow:auto;
+    overflow:hidden;
 
     opacity:1;
 
@@ -749,19 +749,15 @@ html,body{
 .invitation-image{
 
     width:100%;
+    height:100%;
 
-    max-width:600px;
+    object-fit:cover;
+    object-position:center;
 
-    height:auto;
+    border-radius:0;
 
-    max-height:96vh;
+    box-shadow:none;
 
-    object-fit:contain;
-
-    border-radius:10px;
-
-    box-shadow:
-        0 8px 30px rgba(0,0,0,.25);
 }
 
 
