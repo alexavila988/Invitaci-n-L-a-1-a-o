@@ -2,68 +2,95 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1.0,
+               maximum-scale=1.0,
+               user-scalable=no">
 
 <title>Invitación</title>
 
 <style>
+
+/* =====================================================
+   CONFIGURACIÓN GENERAL
+===================================================== */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-html,body{
+html,
+body{
     width:100%;
     height:100%;
     overflow:hidden;
     background:#f48fb1;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
 
-/* =========================================
+
+/* =====================================================
    PANTALLA PRINCIPAL
-========================================= */
+===================================================== */
 
 .toy-screen{
     position:fixed;
     inset:0;
+
     width:100%;
     height:100%;
+
     overflow:hidden;
+
     background:#000;
+
     z-index:1;
 }
 
-/* Fondo principal */
 .main-background{
     position:absolute;
     inset:0;
+
     width:100%;
     height:100%;
+
     object-fit:cover;
     object-position:center;
+
     z-index:1;
 }
 
-/* =========================================
+
+/* =====================================================
    ESTRELLAS DE LA PRIMERA PANTALLA
-========================================= */
+===================================================== */
 
 .star{
     position:absolute;
+
     width:5px;
     height:5px;
+
     background:white;
+
     border-radius:50%;
+
     box-shadow:
         0 0 5px white,
         0 0 12px white;
+
     z-index:5;
-    animation:twinkle 2s infinite ease-in-out;
+
+    animation:
+        twinkle 2s infinite ease-in-out;
 }
 
 @keyframes twinkle{
+
     0%,100%{
         opacity:.15;
         transform:scale(.5);
@@ -75,39 +102,90 @@ html,body{
     }
 }
 
-.star1{left:12%;top:18%;animation-delay:.2s;}
-.star2{left:80%;top:16%;animation-delay:.7s;}
-.star3{left:25%;top:30%;animation-delay:1.2s;}
-.star4{left:88%;top:35%;animation-delay:.4s;}
-.star5{left:70%;top:48%;animation-delay:1.6s;}
-.star6{left:10%;top:55%;animation-delay:1s;}
-.star7{left:48%;top:20%;animation-delay:.5s;}
-.star8{left:60%;top:70%;animation-delay:1.8s;}
+.star1{
+    left:12%;
+    top:18%;
+    animation-delay:.2s;
+}
 
-/* =========================================
+.star2{
+    left:80%;
+    top:16%;
+    animation-delay:.7s;
+}
+
+.star3{
+    left:25%;
+    top:30%;
+    animation-delay:1.2s;
+}
+
+.star4{
+    left:88%;
+    top:35%;
+    animation-delay:.4s;
+}
+
+.star5{
+    left:70%;
+    top:48%;
+    animation-delay:1.6s;
+}
+
+.star6{
+    left:10%;
+    top:55%;
+    animation-delay:1s;
+}
+
+.star7{
+    left:48%;
+    top:20%;
+    animation-delay:.5s;
+}
+
+.star8{
+    left:60%;
+    top:70%;
+    animation-delay:1.8s;
+}
+
+
+/* =====================================================
    ESTRELLAS FUGACES
-========================================= */
+===================================================== */
 
 .shooting-star{
     position:absolute;
+
     width:70px;
     height:2px;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        white,
-        transparent
-    );
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            white,
+            transparent
+        );
+
     transform:rotate(-35deg);
+
     opacity:0;
+
     z-index:5;
-    animation:shoot 5s linear infinite;
+
+    animation:
+        shoot 5s linear infinite;
 }
 
 @keyframes shoot{
+
     0%{
         opacity:0;
-        transform:translate(0,0) rotate(-35deg);
+        transform:
+            translate(0,0)
+            rotate(-35deg);
     }
 
     10%{
@@ -116,7 +194,10 @@ html,body{
 
     25%{
         opacity:0;
-        transform:translate(-150px,150px) rotate(-35deg);
+
+        transform:
+            translate(-150px,150px)
+            rotate(-35deg);
     }
 
     100%{
@@ -136,21 +217,35 @@ html,body{
     animation-delay:5s;
 }
 
-/* =========================================
-   TITULO
-========================================= */
+
+/* =====================================================
+   TEXTO ABRIR INVITACIÓN
+===================================================== */
 
 .open-title{
     position:absolute;
+
     z-index:10;
+
     top:65%;
     left:50%;
-    transform:translateX(-50%);
+
+    transform:
+        translateX(-50%);
+
     width:90%;
+
     text-align:center;
 
-    font-size:clamp(30px,8vw,65px);
+    font-size:
+        clamp(
+            30px,
+            8vw,
+            65px
+        );
+
     font-weight:900;
+
     letter-spacing:2px;
 
     color:#fff;
@@ -161,38 +256,58 @@ html,body{
         0 0 8px #fff,
         0 0 18px #ffd83d;
 
-    animation:titlePulse 2s infinite ease-in-out;
+    animation:
+        titlePulse 2s infinite ease-in-out;
 
     cursor:pointer;
+
     -webkit-tap-highlight-color:transparent;
 }
 
 @keyframes titlePulse{
+
     0%,100%{
-        transform:translateX(-50%) scale(1);
+        transform:
+            translateX(-50%)
+            scale(1);
     }
 
     50%{
-        transform:translateX(-50%) scale(1.05);
+        transform:
+            translateX(-50%)
+            scale(1.05);
     }
 }
 
-/* =========================================
-   SUBTITULO
-========================================= */
+
+/* =====================================================
+   SUBTÍTULO
+===================================================== */
 
 .subtitle{
     position:absolute;
+
     z-index:10;
+
     top:74%;
     left:50%;
-    transform:translateX(-50%);
+
+    transform:
+        translateX(-50%);
 
     width:90%;
+
     text-align:center;
 
     color:white;
-    font-size:clamp(16px,4.5vw,26px);
+
+    font-size:
+        clamp(
+            16px,
+            4.5vw,
+            26px
+        );
+
     font-weight:bold;
 
     text-shadow:
@@ -200,18 +315,23 @@ html,body{
         0 0 10px #000;
 }
 
-/* =========================================
-   PANTALLA 2
-========================================= */
+
+/* =====================================================
+   PÁGINA 2
+===================================================== */
 
 .page2{
     position:fixed;
+
     inset:0;
+
     width:100%;
     height:100%;
+
     background:#f48fb1;
 
     display:flex;
+
     justify-content:center;
     align-items:center;
 
@@ -230,34 +350,47 @@ html,body{
     visibility:visible;
 }
 
-/* Imagen de la invitación */
+
+/* =====================================================
+   IMAGEN DE LA INVITACIÓN
+
+   IMPORTANTE:
+   SE MANTIENE COMO ESTABA ORIGINALMENTE
+===================================================== */
 
 .invitation-image{
     width:100%;
     height:100%;
+
     object-fit:contain;
+
     display:block;
 }
 
-/* =========================================
+
+/* =====================================================
    CONTENEDOR DE GLOBOS
-========================================= */
+===================================================== */
 
 #balloonContainer{
     position:absolute;
+
     inset:0;
+
     width:100%;
     height:100%;
 
     z-index:12;
+
     pointer-events:none;
 
     overflow:hidden;
 }
 
-/* =========================================
+
+/* =====================================================
    GLOBOS
-========================================= */
+===================================================== */
 
 .balloon{
     position:absolute;
@@ -267,7 +400,8 @@ html,body{
     width:38px;
     height:48px;
 
-    border-radius:50% 50% 45% 45%;
+    border-radius:
+        50% 50% 45% 45%;
 
     opacity:0;
 
@@ -276,6 +410,7 @@ html,body{
     animation:
         balloonUp 7s linear forwards;
 }
+
 
 /* Brillo del globo */
 
@@ -292,12 +427,20 @@ html,body{
 
     border-radius:50%;
 
-    background:rgba(255,255,255,.4);
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            .4
+        );
 
-    transform:rotate(25deg);
+    transform:
+        rotate(25deg);
 }
 
-/* Hilo */
+
+/* Hilo del globo */
 
 .balloon::after{
     content:"";
@@ -310,10 +453,20 @@ html,body{
     width:1px;
     height:55px;
 
-    background:rgba(80,80,80,.7);
+    background:
+        rgba(
+            80,
+            80,
+            80,
+            .7
+        );
 
-    transform:translateX(-50%);
+    transform:
+        translateX(-50%);
 }
+
+
+/* Movimiento únicamente vertical */
 
 @keyframes balloonUp{
 
@@ -336,12 +489,14 @@ html,body{
     }
 }
 
-/* =========================================
-   ESTRELLAS DE LA PÁGINA 2
-========================================= */
+
+/* =====================================================
+   CONTENEDOR DE ESTRELLAS DE LA PÁGINA 2
+===================================================== */
 
 #starContainer{
     position:absolute;
+
     inset:0;
 
     width:100%;
@@ -353,6 +508,11 @@ html,body{
 
     overflow:hidden;
 }
+
+
+/* =====================================================
+   ESTRELLAS MÁGICAS
+===================================================== */
 
 .magic-star{
     position:absolute;
@@ -372,8 +532,13 @@ html,body{
         0 0 18px #ffd83d;
 
     animation:
-        magicStar 2.8s ease-in-out forwards;
+        magicStar 2.8s
+        ease-in-out
+        forwards;
 }
+
+
+/* Rayos horizontales y verticales */
 
 .magic-star::before,
 .magic-star::after{
@@ -386,7 +551,8 @@ html,body{
 
     background:white;
 
-    transform:translate(-50%,-50%);
+    transform:
+        translate(-50%,-50%);
 }
 
 .magic-star::before{
@@ -399,86 +565,187 @@ html,body{
     height:22px;
 }
 
+
+/* Animación de las estrellas */
+
 @keyframes magicStar{
 
     0%{
         opacity:0;
-        transform:scale(.2) rotate(0deg);
+
+        transform:
+            scale(.2)
+            rotate(0deg);
     }
 
     25%{
         opacity:.5;
-        transform:scale(.7) rotate(30deg);
+
+        transform:
+            scale(.7)
+            rotate(30deg);
     }
 
     50%{
         opacity:1;
-        transform:scale(1.4) rotate(45deg);
+
+        transform:
+            scale(1.4)
+            rotate(45deg);
     }
 
     70%{
         opacity:.8;
-        transform:scale(1) rotate(60deg);
+
+        transform:
+            scale(1)
+            rotate(60deg);
     }
 
     100%{
         opacity:0;
-        transform:scale(.2) rotate(90deg);
+
+        transform:
+            scale(.2)
+            rotate(90deg);
     }
 }
 
-/* =========================================
+
+/* =====================================================
    BRILLO DE LILYPAD
-========================================= */
+
+   MÁS ABAJO
+   FORMA MÁS CUADRADA
+===================================================== */
 
 .lilypad-glow{
     position:absolute;
 
-    left:35%;
-    top:70%;
+    left:34%;
+    top:73%;
 
-    width:30%;
-    height:17%;
+    width:32%;
+    height:14%;
 
     z-index:18;
 
     pointer-events:none;
 
-    border-radius:50%;
+    border-radius:8px;
 
     box-shadow:
-        0 0 10px rgba(255,255,255,0),
-        0 0 20px rgba(255,255,255,0),
-        0 0 40px rgba(255,255,255,0);
+        0 0 8px
+        rgba(
+            255,
+            255,
+            255,
+            .15
+        ),
 
-    animation:lilypadGlow 2.5s ease-in-out infinite;
+        0 0 18px
+        rgba(
+            255,
+            255,
+            255,
+            .08
+        ),
+
+        0 0 30px
+        rgba(
+            255,
+            216,
+            61,
+            .05
+        );
+
+    animation:
+        lilypadGlow
+        2.5s
+        ease-in-out
+        infinite;
 }
+
+
+/* Pulsación del brillo */
 
 @keyframes lilypadGlow{
 
     0%,100%{
-        opacity:.15;
+
+        opacity:.2;
 
         box-shadow:
-            0 0 8px rgba(255,255,255,.15),
-            0 0 18px rgba(255,255,255,.08),
-            0 0 30px rgba(255,216,61,.05);
+
+            0 0 6px
+            rgba(
+                255,
+                255,
+                255,
+                .15
+            ),
+
+            0 0 15px
+            rgba(
+                255,
+                255,
+                255,
+                .1
+            ),
+
+            0 0 25px
+            rgba(
+                255,
+                216,
+                61,
+                .05
+            );
     }
 
     50%{
+
         opacity:1;
 
         box-shadow:
-            0 0 10px rgba(255,255,255,.8),
-            0 0 25px rgba(255,255,255,.7),
-            0 0 45px rgba(255,216,61,.55),
-            0 0 65px rgba(255,255,255,.3);
+
+            0 0 8px
+            rgba(
+                255,
+                255,
+                255,
+                .9
+            ),
+
+            0 0 18px
+            rgba(
+                255,
+                255,
+                255,
+                .75
+            ),
+
+            0 0 32px
+            rgba(
+                255,
+                216,
+                61,
+                .65
+            ),
+
+            0 0 48px
+            rgba(
+                255,
+                255,
+                255,
+                .35
+            );
     }
 }
 
-/* =========================================
-   BOTÓN INVISIBLE DE LILYPAD
-========================================= */
+
+/* =====================================================
+   ZONA TÁCTIL DE LILYPAD
+===================================================== */
 
 .lilypad-link{
     position:absolute;
@@ -495,13 +762,17 @@ html,body{
 
     cursor:pointer;
 
-    -webkit-tap-highlight-color:transparent;
-    tap-highlight-color:transparent;
+    -webkit-tap-highlight-color:
+        transparent;
+
+    tap-highlight-color:
+        transparent;
 }
 
-/* =========================================
+
+/* =====================================================
    BOTÓN DE MÚSICA
-========================================= */
+===================================================== */
 
 .music-button{
     position:fixed;
@@ -513,9 +784,16 @@ html,body{
     height:45px;
 
     border:none;
+
     border-radius:50%;
 
-    background:rgba(0,0,0,.55);
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            .55
+        );
 
     color:white;
 
@@ -526,16 +804,24 @@ html,body{
     cursor:pointer;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
     box-shadow:
-        0 0 10px rgba(255,255,255,.4);
+        0 0 10px
+        rgba(
+            255,
+            255,
+            255,
+            .4
+        );
 }
 
-/* =========================================
+
+/* =====================================================
    CONFETI
-========================================= */
+===================================================== */
 
 .confetti{
     position:fixed;
@@ -547,12 +833,17 @@ html,body{
 
     pointer-events:none;
 
-    animation:confettiFall 3s linear forwards;
+    animation:
+        confettiFall
+        3s
+        linear
+        forwards;
 }
 
 @keyframes confettiFall{
 
     0%{
+
         transform:
             translateY(-20px)
             rotate(0deg);
@@ -561,6 +852,7 @@ html,body{
     }
 
     100%{
+
         transform:
             translateY(110vh)
             rotate(720deg);
@@ -569,9 +861,10 @@ html,body{
     }
 }
 
-/* =========================================
+
+/* =====================================================
    SERPENTINAS
-========================================= */
+===================================================== */
 
 .streamer{
     position:fixed;
@@ -585,47 +878,63 @@ html,body{
 
     pointer-events:none;
 
-    animation:streamerFall 3.2s ease-in forwards;
+    animation:
+        streamerFall
+        3.2s
+        ease-in
+        forwards;
 }
 
 @keyframes streamerFall{
 
     0%{
+
         transform:
             translateY(-120px)
             rotate(0deg);
+
         opacity:1;
     }
 
     100%{
+
         transform:
             translateY(110vh)
             rotate(540deg);
+
         opacity:0;
     }
 }
 
-/* =========================================
+
+/* =====================================================
    DESVANECER PRIMERA PANTALLA
-========================================= */
+===================================================== */
 
 .toy-screen.hide{
     opacity:0;
+
     pointer-events:none;
 
-    transition:opacity 1s ease;
+    transition:
+        opacity 1s ease;
 }
 
 </style>
 </head>
 
+
 <body>
 
-<!-- =========================================
-     PANTALLA PRINCIPAL
-========================================= -->
 
-<div class="toy-screen" id="toyScreen">
+<!-- ===================================================
+     PANTALLA PRINCIPAL
+=================================================== -->
+
+<div
+    class="toy-screen"
+    id="toyScreen"
+>
 
     <img
         src="fondo toys story.png"
@@ -633,7 +942,9 @@ html,body{
         alt="Fondo"
     >
 
+
     <!-- Estrellas -->
+
     <div class="star star1"></div>
     <div class="star star2"></div>
     <div class="star star3"></div>
@@ -643,11 +954,20 @@ html,body{
     <div class="star star7"></div>
     <div class="star star8"></div>
 
-    <!-- Estrellas fugaces -->
-    <div class="shooting-star shooting1"></div>
-    <div class="shooting-star shooting2"></div>
 
-    <!-- Título -->
+    <!-- Estrellas fugaces -->
+
+    <div
+        class="shooting-star shooting1">
+    </div>
+
+    <div
+        class="shooting-star shooting2">
+    </div>
+
+
+    <!-- Abrir invitación -->
+
     <div
         class="open-title"
         id="openInvitation"
@@ -655,7 +975,9 @@ html,body{
         ABRIR INVITACIÓN
     </div>
 
+
     <!-- Subtítulo -->
+
     <div class="subtitle">
         ✨ ¡Una aventura te espera! ✨
     </div>
@@ -663,11 +985,18 @@ html,body{
 </div>
 
 
-<!-- =========================================
-     PÁGINA 2
-========================================= -->
 
-<div class="page2" id="page2">
+<!-- ===================================================
+     PÁGINA 2
+=================================================== -->
+
+<div
+    class="page2"
+    id="page2"
+>
+
+
+    <!-- Imagen original -->
 
     <img
         src="pagina 2.png"
@@ -675,37 +1004,59 @@ html,body{
         alt="Invitación"
     >
 
-    <!-- Contenedor de globos -->
-    <div id="balloonContainer"></div>
 
-    <!-- Contenedor de estrellas -->
-    <div id="starContainer"></div>
+    <!-- Globos -->
 
-    <!-- Brillo sobre Lilypad -->
-    <div class="lilypad-glow"></div>
+    <div
+        id="balloonContainer">
+    </div>
 
-    <!-- Área invisible de Lilypad -->
+
+    <!-- Estrellas -->
+
+    <div
+        id="starContainer">
+    </div>
+
+
+    <!-- Brillo Lilypad -->
+
+    <div
+        class="lilypad-glow">
+    </div>
+
+
+    <!-- Zona táctil Lilypad -->
+
     <a
         class="lilypad-link"
+
         href="https://maps.app.goo.gl/ErKKQbnFPtNkmCkM7"
+
         target="_blank"
+
         rel="noopener noreferrer"
+
         aria-label="Abrir ubicación en Google Maps"
     ></a>
 
 </div>
 
 
-<!-- =========================================
+
+<!-- ===================================================
      MÚSICA
-========================================= -->
+=================================================== -->
 
 <audio
     id="music"
     src="Toys Story.mp3"
     loop
-    preload="auto"
-></audio>
+    preload="auto">
+</audio>
+
+
+<!-- Botón música -->
 
 <button
     class="music-button"
@@ -716,99 +1067,146 @@ html,body{
 </button>
 
 
+
 <script>
 
-/* =========================================
+
+/* =====================================================
    ELEMENTOS
-========================================= */
+===================================================== */
 
 const openInvitation =
-    document.getElementById("openInvitation");
+    document.getElementById(
+        "openInvitation"
+    );
 
 const toyScreen =
-    document.getElementById("toyScreen");
+    document.getElementById(
+        "toyScreen"
+    );
 
 const page2 =
-    document.getElementById("page2");
+    document.getElementById(
+        "page2"
+    );
 
 const music =
-    document.getElementById("music");
+    document.getElementById(
+        "music"
+    );
 
 const musicButton =
-    document.getElementById("musicButton");
+    document.getElementById(
+        "musicButton"
+    );
 
 const balloonContainer =
-    document.getElementById("balloonContainer");
+    document.getElementById(
+        "balloonContainer"
+    );
 
 const starContainer =
-    document.getElementById("starContainer");
+    document.getElementById(
+        "starContainer"
+    );
 
 
-/* =========================================
+/* =====================================================
    VOLUMEN
-========================================= */
+===================================================== */
 
 music.volume = 0.7;
 
 
-/* =========================================
+/* =====================================================
    ABRIR INVITACIÓN
-========================================= */
+===================================================== */
 
-openInvitation.addEventListener("click", function(){
+openInvitation.addEventListener(
+    "click",
+    function(){
 
-    /* Intentar iniciar música */
-    music.play().catch(function(){
-        console.log("El navegador bloqueó el autoplay.");
-    });
+        /* Iniciar música */
 
-    /* Crear confeti */
-    createConfetti();
+        music.play().catch(
+            function(){
 
-    /* Crear serpentinas */
-    createStreamers();
+                console.log(
+                    "El navegador bloqueó el autoplay."
+                );
 
-    /* Mostrar página 2 */
-    setTimeout(function(){
-
-        toyScreen.classList.add("hide");
-        page2.classList.add("show");
-
-    },500);
-
-});
+            }
+        );
 
 
-/* =========================================
-   BOTÓN DE MÚSICA
-========================================= */
+        /* Confeti */
 
-musicButton.addEventListener("click", function(){
+        createConfetti();
 
-    if(music.paused){
 
-        music.play();
+        /* Serpentinas */
 
-        musicButton.textContent = "🔊";
+        createStreamers();
 
-    }else{
 
-        music.pause();
+        /* Mostrar página 2 */
 
-        musicButton.textContent = "🔇";
+        setTimeout(
+            function(){
+
+                toyScreen.classList.add(
+                    "hide"
+                );
+
+                page2.classList.add(
+                    "show"
+                );
+
+            },
+            500
+        );
 
     }
+);
 
-});
+
+/* =====================================================
+   BOTÓN DE MÚSICA
+===================================================== */
+
+musicButton.addEventListener(
+    "click",
+    function(){
+
+        if(music.paused){
+
+            music.play();
+
+            musicButton.textContent =
+                "🔊";
+
+        }
+        else{
+
+            music.pause();
+
+            musicButton.textContent =
+                "🔇";
+
+        }
+
+    }
+);
 
 
-/* =========================================
+/* =====================================================
    CONFETI
-========================================= */
+===================================================== */
 
 function createConfetti(){
 
     const colors = [
+
         "#ef5350",
         "#ffd83d",
         "#42a5f5",
@@ -816,57 +1214,83 @@ function createConfetti(){
         "#ab47bc",
         "#ff8a65",
         "#ec407a"
+
     ];
 
-    for(let i=0;i<90;i++){
+
+    for(
+        let i=0;
+        i<90;
+        i++
+    ){
 
         const piece =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
+
 
         piece.className =
             "confetti";
 
+
         piece.style.left =
-            Math.random()*100 + "vw";
+            Math.random()*100 +
+            "vw";
+
 
         piece.style.top =
-            (-Math.random()*30) + "vh";
+            (-Math.random()*30) +
+            "vh";
+
 
         piece.style.background =
             colors[
                 Math.floor(
-                    Math.random()*colors.length
+                    Math.random() *
+                    colors.length
                 )
             ];
 
+
         piece.style.animationDelay =
-            Math.random()*0.8 + "s";
+            Math.random()*.8 +
+            "s";
+
 
         piece.style.transform =
             "rotate(" +
             Math.random()*360 +
             "deg)";
 
-        document.body.appendChild(piece);
 
-        setTimeout(function(){
+        document.body.appendChild(
+            piece
+        );
 
-            piece.remove();
 
-        },4000);
+        setTimeout(
+            function(){
+
+                piece.remove();
+
+            },
+            4000
+        );
 
     }
 
 }
 
 
-/* =========================================
+/* =====================================================
    SERPENTINAS
-========================================= */
+===================================================== */
 
 function createStreamers(){
 
     const colors = [
+
         "#ef5350",
         "#ffd83d",
         "#42a5f5",
@@ -874,51 +1298,80 @@ function createStreamers(){
         "#ab47bc",
         "#ff8a65",
         "#ec407a"
+
     ];
 
-    for(let i=0;i<18;i++){
+
+    for(
+        let i=0;
+        i<18;
+        i++
+    ){
 
         const streamer =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
+
 
         streamer.className =
             "streamer";
 
+
         streamer.style.left =
-            Math.random()*100 + "vw";
+            Math.random()*100 +
+            "vw";
+
 
         streamer.style.top =
-            (-Math.random()*20) + "vh";
+            (-Math.random()*20) +
+            "vh";
+
 
         streamer.style.background =
             colors[
                 Math.floor(
-                    Math.random()*colors.length
+                    Math.random() *
+                    colors.length
                 )
             ];
 
+
         streamer.style.height =
-            (60 + Math.random()*80) + "px";
+            (
+                60 +
+                Math.random()*80
+            ) +
+            "px";
+
 
         streamer.style.animationDelay =
-            Math.random()*0.8 + "s";
+            Math.random()*.8 +
+            "s";
 
-        document.body.appendChild(streamer);
 
-        setTimeout(function(){
+        document.body.appendChild(
+            streamer
+        );
 
-            streamer.remove();
 
-        },4500);
+        setTimeout(
+            function(){
+
+                streamer.remove();
+
+            },
+            4500
+        );
 
     }
 
 }
 
 
-/* =========================================
+/* =====================================================
    CREAR GLOBOS
-========================================= */
+===================================================== */
 
 function createBalloons(){
 
@@ -934,16 +1387,26 @@ function createBalloons(){
 
     ];
 
+
     /* Entre 1 y 3 globos */
 
     const amount =
-        Math.floor(Math.random()*3)+1;
+        Math.floor(
+            Math.random()*3
+        ) + 1;
 
 
-    for(let i=0;i<amount;i++){
+    for(
+        let i=0;
+        i<amount;
+        i++
+    ){
 
         const balloon =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
+
 
         balloon.className =
             "balloon";
@@ -952,7 +1415,11 @@ function createBalloons(){
         /* Posición horizontal */
 
         balloon.style.left =
-            (10 + Math.random()*80) + "%";
+            (
+                10 +
+                Math.random()*80
+            ) +
+            "%";
 
 
         /* Color */
@@ -960,47 +1427,66 @@ function createBalloons(){
         balloon.style.background =
             colors[
                 Math.floor(
-                    Math.random()*colors.length
+                    Math.random() *
+                    colors.length
                 )
             ];
 
 
-        /* Tamaño aleatorio */
+        /* Tamaño */
 
         const size =
-            30 + Math.random()*15;
+            30 +
+            Math.random()*15;
+
 
         balloon.style.width =
-            size + "px";
+            size +
+            "px";
+
 
         balloon.style.height =
-            (size*1.25) + "px";
+            (
+                size*1.25
+            ) +
+            "px";
 
 
         /* Velocidad */
 
         balloon.style.animationDuration =
-            (6.5 + Math.random()*2) + "s";
+            (
+                6.5 +
+                Math.random()*2
+            ) +
+            "s";
 
 
-        balloonContainer.appendChild(balloon);
+        balloonContainer.appendChild(
+            balloon
+        );
 
 
-        /* Eliminar después */
+        /* Eliminar */
 
-        setTimeout(function(){
+        setTimeout(
+            function(){
 
-            balloon.remove();
+                balloon.remove();
 
-        },9500);
+            },
+            9500
+        );
 
     }
 
 
-    /* Próximo grupo entre 4 y 6 segundos */
+    /* Próximo grupo:
+       4 a 6 segundos */
 
     const nextTime =
-        4000 + Math.random()*2000;
+        4000 +
+        Math.random()*2000;
 
 
     setTimeout(
@@ -1011,14 +1497,17 @@ function createBalloons(){
 }
 
 
-/* =========================================
-   CREAR ESTRELLAS QUE BRILLAN
-========================================= */
+/* =====================================================
+   CREAR ESTRELLA MÁGICA
+===================================================== */
 
 function createMagicStar(){
 
     const star =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
+
 
     star.className =
         "magic-star";
@@ -1027,79 +1516,107 @@ function createMagicStar(){
     /* Posición aleatoria */
 
     star.style.left =
-        (5 + Math.random()*90) + "%";
+        (
+            5 +
+            Math.random()*90
+        ) +
+        "%";
+
 
     star.style.top =
-        (5 + Math.random()*88) + "%";
+        (
+            5 +
+            Math.random()*88
+        ) +
+        "%";
 
 
-    /* Tamaño aleatorio */
+    /* Tamaño */
 
     const size =
-        4 + Math.random()*6;
+        4 +
+        Math.random()*6;
+
 
     star.style.width =
-        size + "px";
+        size +
+        "px";
+
 
     star.style.height =
-        size + "px";
+        size +
+        "px";
 
 
-    /* Duración ligeramente diferente */
+    /* Duración */
 
     star.style.animationDuration =
-        (2 + Math.random()*2) + "s";
+        (
+            2 +
+            Math.random()*2
+        ) +
+        "s";
 
 
-    /* Retraso */
+    /* Pequeño retraso */
 
     star.style.animationDelay =
-        (Math.random()*0.5) + "s";
+        (
+            Math.random()*.5
+        ) +
+        "s";
 
 
-    starContainer.appendChild(star);
+    starContainer.appendChild(
+        star
+    );
 
 
-    /* Eliminar después de animarse */
+    /* Eliminar */
 
-    setTimeout(function(){
+    setTimeout(
+        function(){
 
-        star.remove();
+            star.remove();
 
-    },4500);
+        },
+        4500
+    );
 
 }
 
 
-/* =========================================
-   GENERADOR CONTINUO DE ESTRELLAS
-========================================= */
+/* =====================================================
+   GENERADOR DE ESTRELLAS
+===================================================== */
 
 function starLoop(){
 
-    /*
-       Aparecen entre 1 y 3 estrellas
-       en cada grupo
-    */
+    /* Entre 1 y 3 estrellas */
 
     const amount =
-        Math.floor(Math.random()*3)+1;
+        Math.floor(
+            Math.random()*3
+        ) + 1;
 
 
-    for(let i=0;i<amount;i++){
+    for(
+        let i=0;
+        i<amount;
+        i++
+    ){
 
         createMagicStar();
 
     }
 
 
-    /*
-       Nuevo grupo cada
-       1.5 - 3 segundos
-    */
+    /* Nuevas estrellas
+       cada 1.5 - 3 segundos */
 
     const nextTime =
-        1500 + Math.random()*1500;
+        1500 +
+        Math.random()*1500;
 
 
     setTimeout(
@@ -1110,18 +1627,20 @@ function starLoop(){
 }
 
 
-/* =========================================
-   INICIAR EFECTOS DE LA PÁGINA 2
-========================================= */
+/* =====================================================
+   INICIAR EFECTOS
+===================================================== */
 
-setTimeout(function(){
+setTimeout(
+    function(){
 
-    createBalloons();
+        createBalloons();
 
-    starLoop();
+        starLoop();
 
-},2000);
-
+    },
+    2000
+);
 
 </script>
 
