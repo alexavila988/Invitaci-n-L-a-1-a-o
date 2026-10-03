@@ -453,9 +453,9 @@ html,body{
     z-index:16;
     bottom:-100px;
 
-    /* GLOBOS MAS GRANDES */
-    width:55px;
-    height:69px;
+    /* GLOBOS DE 50 PX */
+    width:50px;
+    height:62.5px;
 
     border-radius:50% 50% 45% 45%;
     pointer-events:auto;
@@ -468,10 +468,10 @@ html,body{
 .balloon::before{
     content:"";
     position:absolute;
-    top:10px;
-    left:13px;
-    width:14px;
-    height:20px;
+    top:8px;
+    left:11px;
+    width:12px;
+    height:17px;
     border-radius:50%;
     background:rgba(255,255,255,.35);
     transform:rotate(25deg);
@@ -481,9 +481,9 @@ html,body{
     content:"";
     position:absolute;
     left:50%;
-    bottom:-65px;
+    bottom:-60px;
     width:1px;
-    height:65px;
+    height:60px;
     background:rgba(80,80,80,.7);
     transform:translateX(-50%);
 }
@@ -756,7 +756,7 @@ html,body{
      MUSICA
 ========================= -->
 
-<audio id="music" loop>
+<audio id="music" loop preload="auto">
     <source src="Toys Story.mp3" type="audio/mpeg">
 </audio>
 
@@ -771,9 +771,6 @@ html,body{
 
 const startScreen =
     document.getElementById("startScreen");
-
-const toyScreen =
-    document.getElementById("toyScreen");
 
 const music =
     document.getElementById("music");
@@ -804,6 +801,13 @@ const colors = [
 
 
 /* =========================
+   CONTROL DE MUSICA
+========================= */
+
+let musicStarted = false;
+
+
+/* =========================
    ABRIR INVITACION
 ========================= */
 
@@ -811,18 +815,46 @@ startScreen.addEventListener(
     "pointerdown",
     function(){
 
-        startScreen.style.opacity="0";
+        if(startScreen.style.opacity !== "0"){
 
-        music.play().catch(()=>{});
+            startScreen.style.opacity="0";
 
-        createConfetti();
-        createStreamers();
+            /*
+             * La música solamente se intenta
+             * iniciar UNA vez.
+             */
+            if(!musicStarted){
 
-        setTimeout(()=>{
-            startScreen.style.display="none";
-        },700);
+                musicStarted=true;
 
-    }
+                music.currentTime=0;
+
+                const playPromise =
+                    music.play();
+
+                if(playPromise !== undefined){
+
+                    playPromise.catch(()=>{
+                        musicStarted=false;
+                    });
+
+                }
+
+            }
+
+            createConfetti();
+            createStreamers();
+
+            setTimeout(()=>{
+
+                startScreen.style.display="none";
+
+            },700);
+
+        }
+
+    },
+    {once:true}
 );
 
 
@@ -838,9 +870,12 @@ musicBtn.addEventListener(
 
         if(music.paused){
 
-            music.play().catch(()=>{});
+            music.play().then(()=>{
 
-            musicBtn.textContent="🔊";
+                musicStarted=true;
+                musicBtn.textContent="🔊";
+
+            }).catch(()=>{});
 
         }else{
 
@@ -990,16 +1025,19 @@ function createMagicStars(){
 
 function createBalloons(){
 
-    /* 1, 2 o 3 globos */
+    /*
+     * 1, 2 o 3 globos
+     */
     const amount =
         Math.floor(Math.random()*3)+1;
 
     /*
-       Colores disponibles para este grupo.
-       Así no se repite ningún color dentro
-       del mismo grupo.
-    */
-    const availableColors = [...colors];
+     * Copia de colores para que
+     * no se repita ninguno dentro
+     * del mismo grupo.
+     */
+    const availableColors =
+        [...colors];
 
     for(let i=0;i<amount;i++){
 
@@ -1016,7 +1054,8 @@ function createBalloons(){
 
         const colorIndex =
             Math.floor(
-                Math.random()*availableColors.length
+                Math.random()*
+                availableColors.length
             );
 
         const selectedColor =
@@ -1029,29 +1068,27 @@ function createBalloons(){
             selectedColor;
 
 
-        /* =========================
-           TAMAÑO GRANDE
-           
-           55 - 75 PX
-        ========================= */
+        /*
+         * TAMAÑO:
+         * 50 PX EXACTOS
+         */
 
-        const size =
-            55+Math.random()*20;
+        balloon.style.width="50px";
 
-        balloon.style.width =
-            size+"px";
-
-        balloon.style.height =
-            (size*1.25)+"px";
+        balloon.style.height="62.5px";
 
 
-        /* VELOCIDAD */
+        /*
+         * VELOCIDAD
+         */
 
         balloon.style.animationDuration =
             (6.5+Math.random()*2)+"s";
 
 
-        /* EXPLOTAR AL TOCAR */
+        /*
+         * EXPLOTAR AL TOCAR
+         */
 
         balloon.addEventListener(
             "pointerdown",
@@ -1071,7 +1108,9 @@ function createBalloons(){
         );
 
 
-        /* ELIMINACION AUTOMATICA */
+        /*
+         * ELIMINACION AUTOMATICA
+         */
 
         setTimeout(()=>{
 
@@ -1088,7 +1127,10 @@ function createBalloons(){
     }
 
 
-    /* NUEVO GRUPO CADA 4-6 SEGUNDOS */
+    /*
+     * NUEVO GRUPO:
+     * ENTRE 4 Y 6 SEGUNDOS
+     */
 
     const nextTime =
         4000+Math.random()*2000;
@@ -1191,7 +1233,9 @@ function popBalloon(balloon){
             Math.random()*360+
             "deg)";
 
-        document.body.appendChild(piece);
+        document.body.appendChild(
+            piece
+        );
 
         setTimeout(()=>{
             piece.remove();
