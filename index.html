@@ -253,6 +253,7 @@ html,body{
 }
 
 .abrir{
+    position:relative;
     font-size:clamp(55px,15vw,105px);
 }
 
@@ -284,30 +285,6 @@ html,body{
 
     50%{
         transform:translateY(-7px);
-    }
-}
-
-.title-shine{
-    position:absolute;
-    inset:0;
-    pointer-events:none;
-    background:linear-gradient(
-        120deg,
-        transparent 30%,
-        rgba(255,255,255,.8) 50%,
-        transparent 70%
-    );
-    transform:translateX(-120%);
-    animation:titleShine 4s infinite;
-}
-
-@keyframes titleShine{
-    0%,55%{
-        transform:translateX(-120%);
-    }
-
-    75%,100%{
-        transform:translateX(120%);
     }
 }
 
@@ -368,7 +345,7 @@ html,body{
 }
 
 /* =========================
-   BOTON GOOGLE MAPS
+   UBICACION GOOGLE MAPS
 ========================= */
 
 .lilypad-link{
@@ -385,7 +362,7 @@ html,body{
 }
 
 /* =========================
-   ESTRELLAS MAGICAS PAGINA 2
+   ESTRELLAS MAGICAS
 ========================= */
 
 #starContainer{
@@ -476,9 +453,9 @@ html,body{
     z-index:16;
     bottom:-100px;
 
-    /* AUMENTAMOS EL TAMAÑO */
-    width:40px;
-    height:50px;
+    /* GLOBOS MAS GRANDES */
+    width:55px;
+    height:69px;
 
     border-radius:50% 50% 45% 45%;
     pointer-events:auto;
@@ -491,10 +468,10 @@ html,body{
 .balloon::before{
     content:"";
     position:absolute;
-    top:7px;
-    left:9px;
-    width:10px;
-    height:15px;
+    top:10px;
+    left:13px;
+    width:14px;
+    height:20px;
     border-radius:50%;
     background:rgba(255,255,255,.35);
     transform:rotate(25deg);
@@ -504,16 +481,16 @@ html,body{
     content:"";
     position:absolute;
     left:50%;
-    bottom:-55px;
+    bottom:-65px;
     width:1px;
-    height:55px;
+    height:65px;
     background:rgba(80,80,80,.7);
     transform:translateX(-50%);
 }
 
 @keyframes balloonUp{
     0%{
-        bottom:-100px;
+        bottom:-120px;
         opacity:0;
     }
 
@@ -532,7 +509,7 @@ html,body{
 }
 
 /* =========================
-   EXPLOSION DEL GLOBO
+   EXPLOSION
 ========================= */
 
 .pop-particle{
@@ -676,7 +653,6 @@ html,body{
 
 <div class="start-screen" id="startScreen">
 
-    <!-- ESTRELLAS -->
     <div class="star">★</div>
     <div class="star">✦</div>
     <div class="star">★</div>
@@ -711,7 +687,6 @@ html,body{
     <div class="star">★</div>
     <div class="star">✦</div>
 
-    <!-- DESTELLOS -->
     <div class="sparkle sparkle1">✦</div>
     <div class="sparkle sparkle2">✦</div>
     <div class="sparkle sparkle3">✦</div>
@@ -719,17 +694,28 @@ html,body{
     <div class="sparkle sparkle5">✦</div>
     <div class="sparkle sparkle6">✦</div>
 
-    <!-- ESTRELLAS FUGACES -->
     <div class="shooting-star shooting1"></div>
     <div class="shooting-star shooting2"></div>
 
-    <!-- TITULO -->
     <div class="title abrir">
-        <span class="a">A</span><span class="b">B</span><span class="r">R</span><span class="i">I</span><span class="r">R</span>
+        <span class="a">A</span>
+        <span class="b">B</span>
+        <span class="r">R</span>
+        <span class="i">I</span>
+        <span class="r">R</span>
     </div>
 
     <div class="title invitacion">
-        <span class="i">I</span><span class="n">N</span><span class="v">V</span><span class="i">I</span><span class="t">T</span><span class="a">A</span><span class="c">C</span><span class="i">I</span><span class="o">Ó</span><span class="n">N</span>
+        <span class="i">I</span>
+        <span class="n">N</span>
+        <span class="v">V</span>
+        <span class="i">I</span>
+        <span class="t">T</span>
+        <span class="a">A</span>
+        <span class="c">C</span>
+        <span class="i">I</span>
+        <span class="o">Ó</span>
+        <span class="n">N</span>
     </div>
 
     <div class="subtitle">
@@ -751,13 +737,10 @@ html,body{
         alt="Invitación"
     >
 
-    <!-- ESTRELLAS MAGICAS -->
     <div id="starContainer"></div>
 
-    <!-- GLOBOS -->
     <div id="balloonContainer"></div>
 
-    <!-- UBICACION LILYPAD -->
     <a
         class="lilypad-link"
         href="https://maps.app.goo.gl/ErKKQbnFPtNkmCkM7"
@@ -824,45 +807,51 @@ const colors = [
    ABRIR INVITACION
 ========================= */
 
-startScreen.addEventListener("pointerdown",function(){
+startScreen.addEventListener(
+    "pointerdown",
+    function(){
 
-    startScreen.style.opacity="0";
+        startScreen.style.opacity="0";
 
-    music.play().catch(()=>{});
+        music.play().catch(()=>{});
 
-    createConfetti();
-    createStreamers();
+        createConfetti();
+        createStreamers();
 
-    setTimeout(()=>{
-        startScreen.style.display="none";
-    },700);
+        setTimeout(()=>{
+            startScreen.style.display="none";
+        },700);
 
-});
+    }
+);
 
 
 /* =========================
    BOTON MUSICA
 ========================= */
 
-musicBtn.addEventListener("click",function(e){
+musicBtn.addEventListener(
+    "click",
+    function(e){
 
-    e.stopPropagation();
+        e.stopPropagation();
 
-    if(music.paused){
+        if(music.paused){
 
-        music.play().catch(()=>{});
+            music.play().catch(()=>{});
 
-        musicBtn.textContent="🔊";
+            musicBtn.textContent="🔊";
 
-    }else{
+        }else{
 
-        music.pause();
+            music.pause();
 
-        musicBtn.textContent="🔇";
+            musicBtn.textContent="🔇";
+
+        }
 
     }
-
-});
+);
 
 
 /* =========================
@@ -1006,8 +995,9 @@ function createBalloons(){
         Math.floor(Math.random()*3)+1;
 
     /*
-       Copiamos los colores para que
-       NO se repitan dentro del mismo grupo
+       Colores disponibles para este grupo.
+       Así no se repite ningún color dentro
+       del mismo grupo.
     */
     const availableColors = [...colors];
 
@@ -1039,18 +1029,14 @@ function createBalloons(){
             selectedColor;
 
 
-        /*
-           TAMAÑO AUMENTADO
-
-           Antes:
-           30 - 45 px
-
-           Ahora:
-           40 - 55 px
-        */
+        /* =========================
+           TAMAÑO GRANDE
+           
+           55 - 75 PX
+        ========================= */
 
         const size =
-            40+Math.random()*15;
+            55+Math.random()*20;
 
         balloon.style.width =
             size+"px";
@@ -1085,14 +1071,13 @@ function createBalloons(){
         );
 
 
-        /*
-           Eliminación automática
-           después de terminar su recorrido
-        */
+        /* ELIMINACION AUTOMATICA */
 
         setTimeout(()=>{
 
-            if(balloon.dataset.popped!=="1"){
+            if(
+                balloon.dataset.popped!=="1"
+            ){
 
                 balloon.remove();
 
@@ -1103,10 +1088,7 @@ function createBalloons(){
     }
 
 
-    /*
-       Nuevo grupo cada
-       4 a 6 segundos
-    */
+    /* NUEVO GRUPO CADA 4-6 SEGUNDOS */
 
     const nextTime =
         4000+Math.random()*2000;
@@ -1145,7 +1127,7 @@ function popBalloon(balloon){
         rect.top+rect.height/2;
 
 
-    /* Ocultar globo */
+    /* OCULTAR GLOBO */
 
     balloon.style.animation="none";
 
@@ -1194,7 +1176,6 @@ function popBalloon(balloon){
                 )
             ];
 
-
         piece.style.setProperty(
             "--dx",
             (Math.random()*120-60)+"px"
@@ -1205,15 +1186,12 @@ function popBalloon(balloon){
             (Math.random()*120-60)+"px"
         );
 
-
         piece.style.transform =
             "rotate("+
             Math.random()*360+
             "deg)";
 
-
         document.body.appendChild(piece);
-
 
         setTimeout(()=>{
             piece.remove();
@@ -1238,7 +1216,6 @@ function popBalloon(balloon){
     document.body.appendChild(
         burst
     );
-
 
     setTimeout(()=>{
         burst.remove();
