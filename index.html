@@ -2,417 +2,683 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<meta name="viewport"
-      content="width=device-width,
-               initial-scale=1.0,
-               maximum-scale=1.0,
-               user-scalable=no">
-
-<title>Invitación</title>
+<title>Invitación de cumpleaños</title>
 
 <style>
 
-/* =====================================================
-   CONFIGURACIÓN GENERAL
-===================================================== */
-
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
 }
 
-html,
-body{
+html,body{
     width:100%;
     height:100%;
     overflow:hidden;
-    background:#f48fb1;
     font-family:Arial,sans-serif;
 }
 
 
-/* =====================================================
-   PANTALLA PRINCIPAL
-===================================================== */
+/* =========================================================
+   PRIMERA PANTALLA
+   ========================================================= */
+
+.start-screen{
+    position:fixed;
+    inset:0;
+    z-index:10;
+
+    background-image:url("fondo toys story.png");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+    overflow:hidden;
+    cursor:pointer;
+
+    transition:opacity .5s ease;
+}
+
+
+/* =========================================================
+   ESTRELLAS
+   ========================================================= */
+
+.star{
+    position:absolute;
+    z-index:2;
+
+    color:white;
+    font-size:22px;
+
+    text-shadow:
+        0 0 5px white,
+        0 0 10px white,
+        0 0 18px #ffd83d;
+
+    animation:twinkle 2s infinite ease-in-out;
+}
+
+@keyframes twinkle{
+
+    0%,100%{
+        transform:scale(.7) rotate(0deg);
+        opacity:.4;
+    }
+
+    50%{
+        transform:scale(1.25) rotate(20deg);
+        opacity:1;
+    }
+}
+
+
+/* POSICIONES DE LAS 30 ESTRELLAS */
+
+.star:nth-child(1){top:6%;left:8%;font-size:18px;animation-delay:.2s;}
+.star:nth-child(2){top:11%;left:24%;font-size:13px;animation-delay:1.1s;}
+.star:nth-child(3){top:5%;left:43%;font-size:24px;animation-delay:.5s;}
+.star:nth-child(4){top:14%;left:68%;font-size:15px;animation-delay:1.7s;}
+.star:nth-child(5){top:8%;left:91%;font-size:20px;animation-delay:.8s;}
+
+.star:nth-child(6){top:22%;left:5%;font-size:14px;animation-delay:1.4s;}
+.star:nth-child(7){top:25%;left:18%;font-size:22px;animation-delay:.3s;}
+.star:nth-child(8){top:20%;left:82%;font-size:16px;animation-delay:1.8s;}
+.star:nth-child(9){top:29%;left:95%;font-size:22px;animation-delay:.6s;}
+
+.star:nth-child(10){top:37%;left:7%;font-size:17px;animation-delay:1.3s;}
+.star:nth-child(11){top:34%;left:27%;font-size:12px;animation-delay:.9s;}
+.star:nth-child(12){top:39%;left:73%;font-size:20px;animation-delay:1.6s;}
+.star:nth-child(13){top:42%;left:90%;font-size:14px;animation-delay:.4s;}
+
+.star:nth-child(14){top:52%;left:4%;font-size:22px;animation-delay:1.2s;}
+.star:nth-child(15){top:49%;left:19%;font-size:15px;animation-delay:.7s;}
+.star:nth-child(16){top:55%;left:82%;font-size:20px;animation-delay:1.9s;}
+.star:nth-child(17){top:51%;left:94%;font-size:13px;animation-delay:.1s;}
+
+.star:nth-child(18){top:64%;left:8%;font-size:16px;animation-delay:1.5s;}
+.star:nth-child(19){top:61%;left:25%;font-size:21px;animation-delay:.6s;}
+.star:nth-child(20){top:66%;left:76%;font-size:14px;animation-delay:1.1s;}
+.star:nth-child(21){top:70%;left:92%;font-size:22px;animation-delay:.3s;}
+
+.star:nth-child(22){top:77%;left:5%;font-size:14px;animation-delay:1.8s;}
+.star:nth-child(23){top:73%;left:20%;font-size:19px;animation-delay:.5s;}
+.star:nth-child(24){top:78%;left:81%;font-size:15px;animation-delay:1.4s;}
+.star:nth-child(25){top:82%;left:95%;font-size:20px;animation-delay:.8s;}
+
+.star:nth-child(26){top:89%;left:10%;font-size:17px;animation-delay:1.6s;}
+.star:nth-child(27){top:85%;left:30%;font-size:13px;animation-delay:.4s;}
+.star:nth-child(28){top:91%;left:70%;font-size:21px;animation-delay:1.2s;}
+.star:nth-child(29){top:87%;left:85%;font-size:15px;animation-delay:.7s;}
+.star:nth-child(30){top:94%;left:48%;font-size:18px;animation-delay:1.9s;}
+
+
+/* =========================================================
+   DESTELLOS
+   ========================================================= */
+
+.sparkle{
+    position:absolute;
+    z-index:4;
+
+    color:white;
+    font-size:14px;
+
+    text-shadow:
+        0 0 5px white,
+        0 0 10px #ffd83d;
+
+    opacity:0;
+
+    animation:sparkleAppear 2.8s ease-in-out infinite;
+}
+
+.sparkle1{
+    top:18%;
+    left:35%;
+    animation-delay:.5s;
+}
+
+.sparkle2{
+    top:30%;
+    left:65%;
+    animation-delay:1.2s;
+}
+
+.sparkle3{
+    top:45%;
+    left:12%;
+    animation-delay:2s;
+}
+
+.sparkle4{
+    top:57%;
+    left:88%;
+    animation-delay:.8s;
+}
+
+.sparkle5{
+    top:75%;
+    left:35%;
+    animation-delay:1.6s;
+}
+
+.sparkle6{
+    top:84%;
+    left:65%;
+    animation-delay:2.3s;
+}
+
+@keyframes sparkleAppear{
+
+    0%,100%{
+        opacity:0;
+        transform:scale(.3) rotate(0deg);
+    }
+
+    50%{
+        opacity:1;
+        transform:scale(1.2) rotate(45deg);
+    }
+}
+
+
+/* =========================================================
+   ESTRELLAS FUGACES
+   ========================================================= */
+
+.shooting-star{
+    position:absolute;
+    z-index:3;
+
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+    background:white;
+
+    box-shadow:
+        0 0 5px white,
+        0 0 12px white,
+        0 0 20px #ffd83d;
+
+    opacity:0;
+
+    transform:rotate(-35deg);
+}
+
+.shooting-star::after{
+    content:"";
+
+    position:absolute;
+    top:50%;
+    right:3px;
+
+    width:90px;
+    height:2px;
+
+    transform:translateY(-50%);
+
+    background:linear-gradient(
+        to left,
+        rgba(255,255,255,.9),
+        rgba(255,255,255,0)
+    );
+}
+
+.shooting1{
+    top:18%;
+    left:-100px;
+
+    animation:shooting 8s linear infinite;
+    animation-delay:3s;
+}
+
+.shooting2{
+    top:32%;
+    left:-100px;
+
+    animation:shooting 9s linear infinite;
+    animation-delay:7s;
+}
+
+@keyframes shooting{
+
+    0%{
+        left:-100px;
+        opacity:0;
+    }
+
+    5%{
+        opacity:1;
+    }
+
+    20%{
+        left:110%;
+        opacity:0;
+    }
+
+    100%{
+        left:110%;
+        opacity:0;
+    }
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.title{
+    position:relative;
+    z-index:5;
+
+    font-family:Impact,"Arial Black",sans-serif;
+    font-weight:900;
+
+    text-transform:uppercase;
+
+    line-height:.9;
+    letter-spacing:1px;
+
+    text-shadow:
+        4px 4px 0 #173b70,
+        -2px -2px 0 #173b70,
+        2px -2px 0 #173b70,
+        -2px 2px 0 #173b70;
+
+    display:flex;
+    justify-content:center;
+}
+
+.title span{
+    display:inline-block;
+    transform-origin:top center;
+}
+
+
+/* =========================================================
+   ANIMACIÓN INDIVIDUAL DE LAS LETRAS
+   ========================================================= */
+
+.abrir span:nth-child(1){
+    animation:letter1 2.5s ease-in-out infinite;
+}
+
+.abrir span:nth-child(2){
+    animation:letter2 2.8s ease-in-out infinite;
+}
+
+.abrir span:nth-child(3){
+    animation:letter3 2.3s ease-in-out infinite;
+}
+
+.abrir span:nth-child(4){
+    animation:letter4 2.7s ease-in-out infinite;
+}
+
+.abrir span:nth-child(5){
+    animation:letter5 2.4s ease-in-out infinite;
+}
+
+.invitacion span:nth-child(1){
+    animation:letter6 2.7s ease-in-out infinite;
+}
+
+.invitacion span:nth-child(2){
+    animation:letter7 2.4s ease-in-out infinite;
+}
+
+.invitacion span:nth-child(3){
+    animation:letter8 2.8s ease-in-out infinite;
+}
+
+.invitacion span:nth-child(4){
+    animation:letter9 2.5s ease-in-out infinite;
+}
+
+.invitacion span:nth-child(5){
+    animation:letter10 2.9s ease-in-out infinite;
+}
+
+.invitacion span:nth-child(6){
+    animation:letter11 2.3s ease-in-out infinite;
+}
+
+.invitacion span:nth-child(7){
+    animation:letter12 2.6s ease-in-out infinite;
+}
+
+.invitacion span:nth-child(8){
+    animation:letter13 2.4s ease-in-out infinite;
+}
+
+.invitacion span:nth-child(9){
+    animation:letter14 2.8s ease-in-out infinite;
+}
+
+.invitacion span:nth-child(10){
+    animation:letter6 2.6s ease-in-out infinite;
+}
+
+@keyframes letter1{
+    0%,100%{transform:rotate(-3deg) translateY(0);}
+    50%{transform:rotate(4deg) translateY(-8px);}
+}
+
+@keyframes letter2{
+    0%,100%{transform:rotate(3deg) translateY(0);}
+    50%{transform:rotate(-5deg) translateY(7px);}
+}
+
+@keyframes letter3{
+    0%,100%{transform:rotate(-2deg) translateY(0);}
+    50%{transform:rotate(5deg) translateY(-6px);}
+}
+
+@keyframes letter4{
+    0%,100%{transform:rotate(4deg) translateY(0);}
+    50%{transform:rotate(-4deg) translateY(8px);}
+}
+
+@keyframes letter5{
+    0%,100%{transform:rotate(-4deg) translateY(0);}
+    50%{transform:rotate(3deg) translateY(-7px);}
+}
+
+@keyframes letter6{
+    0%,100%{transform:rotate(-3deg) translateY(0);}
+    50%{transform:rotate(3deg) translateY(-6px);}
+}
+
+@keyframes letter7{
+    0%,100%{transform:rotate(3deg) translateY(0);}
+    50%{transform:rotate(-4deg) translateY(6px);}
+}
+
+@keyframes letter8{
+    0%,100%{transform:rotate(-2deg) translateY(0);}
+    50%{transform:rotate(4deg) translateY(-7px);}
+}
+
+@keyframes letter9{
+    0%,100%{transform:rotate(4deg) translateY(0);}
+    50%{transform:rotate(-3deg) translateY(7px);}
+}
+
+@keyframes letter10{
+    0%,100%{transform:rotate(-3deg) translateY(0);}
+    50%{transform:rotate(4deg) translateY(-6px);}
+}
+
+@keyframes letter11{
+    0%,100%{transform:rotate(3deg) translateY(0);}
+    50%{transform:rotate(-4deg) translateY(7px);}
+}
+
+@keyframes letter12{
+    0%,100%{transform:rotate(-4deg) translateY(0);}
+    50%{transform:rotate(3deg) translateY(-6px);}
+}
+
+@keyframes letter13{
+    0%,100%{transform:rotate(2deg) translateY(0);}
+    50%{transform:rotate(-4deg) translateY(7px);}
+}
+
+@keyframes letter14{
+    0%,100%{transform:rotate(-3deg) translateY(0);}
+    50%{transform:rotate(4deg) translateY(-6px);}
+}
+
+
+/* =========================================================
+   TAMAÑOS
+   ========================================================= */
+
+.abrir{
+    position:relative;
+    font-size:clamp(55px,15vw,105px);
+}
+
+.invitacion{
+    font-size:clamp(38px,10vw,72px);
+    margin-top:10px;
+}
+
+
+/* =========================================================
+   COLORES
+   ========================================================= */
+
+.title .a{color:#ef5350;}
+.title .b{color:#ffd83d;}
+.title .r{color:#42a5f5;}
+.title .i{color:#66bb6a;}
+.title .n{color:#ff8a65;}
+.title .v{color:#ab47bc;}
+.title .t{color:#42a5f5;}
+.title .c{color:#ffd83d;}
+.title .o{color:#ef5350;}
+
+
+/* =========================================================
+   BRILLO
+   ========================================================= */
+
+.abrir::after{
+    content:"";
+
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:-25%;
+
+    width:18%;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.95),
+        transparent
+    );
+
+    transform:skewX(-20deg);
+
+    opacity:0;
+    pointer-events:none;
+
+    animation:shineTitle 6s ease-in-out infinite;
+}
+
+@keyframes shineTitle{
+
+    0%,65%{
+        left:-25%;
+        opacity:0;
+    }
+
+    70%{
+        opacity:1;
+    }
+
+    85%{
+        left:110%;
+        opacity:1;
+    }
+
+    90%,100%{
+        left:110%;
+        opacity:0;
+    }
+}
+
+
+/* =========================================================
+   BURBUJA
+   ========================================================= */
+
+.subtitle{
+    position:relative;
+    z-index:5;
+
+    margin-top:30px;
+
+    background:white;
+    color:#173b70;
+
+    padding:12px 22px;
+
+    border:4px solid #173b70;
+    border-radius:22px;
+
+    font-size:clamp(15px,4vw,23px);
+    font-weight:bold;
+
+    box-shadow:
+        4px 5px 0 rgba(23,59,112,.25);
+
+    animation:bubbleFloat 3s ease-in-out infinite;
+}
+
+.subtitle::after{
+    content:"";
+
+    position:absolute;
+
+    bottom:-15px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:0;
+    height:0;
+
+    border-left:13px solid transparent;
+    border-right:13px solid transparent;
+    border-top:16px solid #173b70;
+}
+
+.subtitle::before{
+    content:"";
+
+    position:absolute;
+
+    bottom:-9px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:0;
+    height:0;
+
+    z-index:2;
+
+    border-left:9px solid transparent;
+    border-right:9px solid transparent;
+    border-top:12px solid white;
+}
+
+@keyframes bubbleFloat{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-5px);
+    }
+}
+
+
+/* =========================================================
+   SEGUNDA PÁGINA
+   ========================================================= */
 
 .toy-screen{
     position:fixed;
     inset:0;
+    z-index:5;
 
-    width:100%;
-    height:100%;
+    background:#f48fb1;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
     overflow:hidden;
 
-    background:#000;
+    opacity:1;
 
-    z-index:1;
+    transition:opacity .5s ease;
 }
 
-.main-background{
-    position:absolute;
-    inset:0;
-
+.invitation-image{
     width:100%;
     height:100%;
 
     object-fit:cover;
     object-position:center;
 
-    z-index:1;
+    border-radius:0;
+    box-shadow:none;
 }
 
 
-/* =====================================================
-   ESTRELLAS DE LA PRIMERA PANTALLA
-===================================================== */
+/* =========================================================
+   ZONA TÁCTIL DE LILYPAD
+   ========================================================= */
 
-.star{
+.lilypad-link{
     position:absolute;
 
-    width:5px;
-    height:5px;
-
-    background:white;
-
-    border-radius:50%;
-
-    box-shadow:
-        0 0 5px white,
-        0 0 12px white;
-
-    z-index:5;
-
-    animation:
-        twinkle 2s infinite ease-in-out;
-}
-
-@keyframes twinkle{
-
-    0%,100%{
-        opacity:.15;
-        transform:scale(.5);
-    }
-
-    50%{
-        opacity:1;
-        transform:scale(1.4);
-    }
-}
-
-.star1{
-    left:12%;
-    top:18%;
-    animation-delay:.2s;
-}
-
-.star2{
-    left:80%;
-    top:16%;
-    animation-delay:.7s;
-}
-
-.star3{
-    left:25%;
-    top:30%;
-    animation-delay:1.2s;
-}
-
-.star4{
-    left:88%;
-    top:35%;
-    animation-delay:.4s;
-}
-
-.star5{
-    left:70%;
-    top:48%;
-    animation-delay:1.6s;
-}
-
-.star6{
-    left:10%;
-    top:55%;
-    animation-delay:1s;
-}
-
-.star7{
-    left:48%;
-    top:20%;
-    animation-delay:.5s;
-}
-
-.star8{
-    left:60%;
+    left:35%;
     top:70%;
-    animation-delay:1.8s;
-}
+    width:30%;
+    height:17%;
 
+    z-index:20;
 
-/* =====================================================
-   ESTRELLAS FUGACES
-===================================================== */
-
-.shooting-star{
-    position:absolute;
-
-    width:70px;
-    height:2px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            white,
-            transparent
-        );
-
-    transform:rotate(-35deg);
-
-    opacity:0;
-
-    z-index:5;
-
-    animation:
-        shoot 5s linear infinite;
-}
-
-@keyframes shoot{
-
-    0%{
-        opacity:0;
-        transform:
-            translate(0,0)
-            rotate(-35deg);
-    }
-
-    10%{
-        opacity:1;
-    }
-
-    25%{
-        opacity:0;
-
-        transform:
-            translate(-150px,150px)
-            rotate(-35deg);
-    }
-
-    100%{
-        opacity:0;
-    }
-}
-
-.shooting1{
-    right:5%;
-    top:18%;
-    animation-delay:2s;
-}
-
-.shooting2{
-    right:20%;
-    top:35%;
-    animation-delay:5s;
-}
-
-
-/* =====================================================
-   TEXTO ABRIR INVITACIÓN
-===================================================== */
-
-.open-title{
-    position:absolute;
-
-    z-index:10;
-
-    top:65%;
-    left:50%;
-
-    transform:
-        translateX(-50%);
-
-    width:90%;
-
-    text-align:center;
-
-    font-size:
-        clamp(
-            30px,
-            8vw,
-            65px
-        );
-
-    font-weight:900;
-
-    letter-spacing:2px;
-
-    color:#fff;
-
-    text-shadow:
-        3px 3px 0 #2f80ed,
-        -2px -2px 0 #2f80ed,
-        0 0 8px #fff,
-        0 0 18px #ffd83d;
-
-    animation:
-        titlePulse 2s infinite ease-in-out;
+    background:transparent;
 
     cursor:pointer;
 
     -webkit-tap-highlight-color:transparent;
-}
-
-@keyframes titlePulse{
-
-    0%,100%{
-        transform:
-            translateX(-50%)
-            scale(1);
-    }
-
-    50%{
-        transform:
-            translateX(-50%)
-            scale(1.05);
-    }
+    tap-highlight-color:transparent;
 }
 
 
-/* =====================================================
-   SUBTÍTULO
-===================================================== */
-
-.subtitle{
-    position:absolute;
-
-    z-index:10;
-
-    top:74%;
-    left:50%;
-
-    transform:
-        translateX(-50%);
-
-    width:90%;
-
-    text-align:center;
-
-    color:white;
-
-    font-size:
-        clamp(
-            16px,
-            4.5vw,
-            26px
-        );
-
-    font-weight:bold;
-
-    text-shadow:
-        0 0 5px #000,
-        0 0 10px #000;
-}
-
-
-/* =====================================================
-   PÁGINA 2
-===================================================== */
-
-.page2{
-    position:fixed;
-
-    inset:0;
-
-    width:100%;
-    height:100%;
-
-    background:#f48fb1;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    opacity:0;
-    visibility:hidden;
-
-    z-index:2;
-
-    transition:
-        opacity 1s ease,
-        visibility 1s ease;
-}
-
-.page2.show{
-    opacity:1;
-    visibility:visible;
-}
-
-
-/* =====================================================
-   IMAGEN DE LA INVITACIÓN
-
-   IMPORTANTE:
-   SE MANTIENE COMO ESTABA ORIGINALMENTE
-===================================================== */
-
-.invitation-image{
-    width:100%;
-    height:100%;
-
-    object-fit:contain;
-
-    display:block;
-}
-
-
-/* =====================================================
-   CONTENEDOR DE GLOBOS
-===================================================== */
-
-#balloonContainer{
-    position:absolute;
-
-    inset:0;
-
-    width:100%;
-    height:100%;
-
-    z-index:12;
-
-    pointer-events:none;
-
-    overflow:hidden;
-}
-
-
-/* =====================================================
+/* =========================================================
    GLOBOS
-===================================================== */
+   ========================================================= */
 
 .balloon{
     position:absolute;
+
+    z-index:12;
 
     bottom:-100px;
 
     width:38px;
     height:48px;
 
-    border-radius:
-        50% 50% 45% 45%;
-
-    opacity:0;
+    border-radius:50% 50% 45% 45%;
 
     pointer-events:none;
 
-    animation:
-        balloonUp 7s linear forwards;
+    opacity:0;
+
+    animation:balloonUp 7s linear forwards;
 }
-
-
-/* Brillo del globo */
 
 .balloon::before{
     content:"";
@@ -427,20 +693,10 @@ body{
 
     border-radius:50%;
 
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            .4
-        );
+    background:rgba(255,255,255,.35);
 
-    transform:
-        rotate(25deg);
+    transform:rotate(25deg);
 }
-
-
-/* Hilo del globo */
 
 .balloon::after{
     content:"";
@@ -448,25 +704,16 @@ body{
     position:absolute;
 
     left:50%;
+
     bottom:-55px;
 
     width:1px;
     height:55px;
 
-    background:
-        rgba(
-            80,
-            80,
-            80,
-            .7
-        );
+    background:rgba(80,80,80,.7);
 
-    transform:
-        translateX(-50%);
+    transform:translateX(-50%);
 }
-
-
-/* Movimiento únicamente vertical */
 
 @keyframes balloonUp{
 
@@ -490,360 +737,26 @@ body{
 }
 
 
-/* =====================================================
-   CONTENEDOR DE ESTRELLAS DE LA PÁGINA 2
-===================================================== */
-
-#starContainer{
-    position:absolute;
-
-    inset:0;
-
-    width:100%;
-    height:100%;
-
-    z-index:14;
-
-    pointer-events:none;
-
-    overflow:hidden;
-}
-
-
-/* =====================================================
-   ESTRELLAS MÁGICAS
-===================================================== */
-
-.magic-star{
-    position:absolute;
-
-    width:7px;
-    height:7px;
-
-    background:white;
-
-    border-radius:50%;
-
-    opacity:0;
-
-    box-shadow:
-        0 0 5px white,
-        0 0 10px white,
-        0 0 18px #ffd83d;
-
-    animation:
-        magicStar 2.8s
-        ease-in-out
-        forwards;
-}
-
-
-/* Rayos horizontales y verticales */
-
-.magic-star::before,
-.magic-star::after{
-    content:"";
-
-    position:absolute;
-
-    left:50%;
-    top:50%;
-
-    background:white;
-
-    transform:
-        translate(-50%,-50%);
-}
-
-.magic-star::before{
-    width:22px;
-    height:2px;
-}
-
-.magic-star::after{
-    width:2px;
-    height:22px;
-}
-
-
-/* Animación de las estrellas */
-
-@keyframes magicStar{
-
-    0%{
-        opacity:0;
-
-        transform:
-            scale(.2)
-            rotate(0deg);
-    }
-
-    25%{
-        opacity:.5;
-
-        transform:
-            scale(.7)
-            rotate(30deg);
-    }
-
-    50%{
-        opacity:1;
-
-        transform:
-            scale(1.4)
-            rotate(45deg);
-    }
-
-    70%{
-        opacity:.8;
-
-        transform:
-            scale(1)
-            rotate(60deg);
-    }
-
-    100%{
-        opacity:0;
-
-        transform:
-            scale(.2)
-            rotate(90deg);
-    }
-}
-
-
-/* =====================================================
-   BRILLO DE LILYPAD
-
-   MÁS ABAJO
-   FORMA MÁS CUADRADA
-===================================================== */
-
-.lilypad-glow{
-    position:absolute;
-
-    left:34%;
-    top:73%;
-
-    width:32%;
-    height:14%;
-
-    z-index:18;
-
-    pointer-events:none;
-
-    border-radius:8px;
-
-    box-shadow:
-        0 0 8px
-        rgba(
-            255,
-            255,
-            255,
-            .15
-        ),
-
-        0 0 18px
-        rgba(
-            255,
-            255,
-            255,
-            .08
-        ),
-
-        0 0 30px
-        rgba(
-            255,
-            216,
-            61,
-            .05
-        );
-
-    animation:
-        lilypadGlow
-        2.5s
-        ease-in-out
-        infinite;
-}
-
-
-/* Pulsación del brillo */
-
-@keyframes lilypadGlow{
-
-    0%,100%{
-
-        opacity:.2;
-
-        box-shadow:
-
-            0 0 6px
-            rgba(
-                255,
-                255,
-                255,
-                .15
-            ),
-
-            0 0 15px
-            rgba(
-                255,
-                255,
-                255,
-                .1
-            ),
-
-            0 0 25px
-            rgba(
-                255,
-                216,
-                61,
-                .05
-            );
-    }
-
-    50%{
-
-        opacity:1;
-
-        box-shadow:
-
-            0 0 8px
-            rgba(
-                255,
-                255,
-                255,
-                .9
-            ),
-
-            0 0 18px
-            rgba(
-                255,
-                255,
-                255,
-                .75
-            ),
-
-            0 0 32px
-            rgba(
-                255,
-                216,
-                61,
-                .65
-            ),
-
-            0 0 48px
-            rgba(
-                255,
-                255,
-                255,
-                .35
-            );
-    }
-}
-
-
-/* =====================================================
-   ZONA TÁCTIL DE LILYPAD
-===================================================== */
-
-.lilypad-link{
-    position:absolute;
-
-    left:35%;
-    top:70%;
-
-    width:30%;
-    height:17%;
-
-    z-index:20;
-
-    background:transparent;
-
-    cursor:pointer;
-
-    -webkit-tap-highlight-color:
-        transparent;
-
-    tap-highlight-color:
-        transparent;
-}
-
-
-/* =====================================================
-   BOTÓN DE MÚSICA
-===================================================== */
-
-.music-button{
-    position:fixed;
-
-    right:15px;
-    bottom:15px;
-
-    width:45px;
-    height:45px;
-
-    border:none;
-
-    border-radius:50%;
-
-    background:
-        rgba(
-            0,
-            0,
-            0,
-            .55
-        );
-
-    color:white;
-
-    font-size:21px;
-
-    z-index:50;
-
-    cursor:pointer;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    box-shadow:
-        0 0 10px
-        rgba(
-            255,
-            255,
-            255,
-            .4
-        );
-}
-
-
-/* =====================================================
+/* =========================================================
    CONFETI
-===================================================== */
+   ========================================================= */
 
 .confetti{
     position:fixed;
 
-    width:8px;
-    height:14px;
+    z-index:30;
 
-    z-index:100;
+    width:9px;
+    height:14px;
 
     pointer-events:none;
 
-    animation:
-        confettiFall
-        3s
-        linear
-        forwards;
+    animation:confettiFall 2.5s linear forwards;
 }
 
 @keyframes confettiFall{
 
     0%{
-
         transform:
             translateY(-20px)
             rotate(0deg);
@@ -852,9 +765,9 @@ body{
     }
 
     100%{
-
         transform:
             translateY(110vh)
+            translateX(var(--x))
             rotate(720deg);
 
         opacity:0;
@@ -862,44 +775,39 @@ body{
 }
 
 
-/* =====================================================
+/* =========================================================
    SERPENTINAS
-===================================================== */
+   ========================================================= */
 
 .streamer{
     position:fixed;
 
+    z-index:29;
+
     width:7px;
-    height:100px;
+    height:90px;
 
-    z-index:99;
-
-    border-radius:10px;
+    border-radius:50%;
 
     pointer-events:none;
 
-    animation:
-        streamerFall
-        3.2s
-        ease-in
-        forwards;
+    animation:streamerFall 3s ease-in forwards;
 }
 
 @keyframes streamerFall{
 
     0%{
-
         transform:
-            translateY(-120px)
+            translateY(-100px)
             rotate(0deg);
 
         opacity:1;
     }
 
     100%{
-
         transform:
             translateY(110vh)
+            translateX(var(--x))
             rotate(540deg);
 
         opacity:0;
@@ -907,17 +815,64 @@ body{
 }
 
 
-/* =====================================================
-   DESVANECER PRIMERA PANTALLA
-===================================================== */
+/* =========================================================
+   BOTÓN DE MÚSICA
+   ========================================================= */
 
-.toy-screen.hide{
-    opacity:0;
+.music-btn{
+    position:fixed;
 
-    pointer-events:none;
+    z-index:50;
 
-    transition:
-        opacity 1s ease;
+    right:15px;
+    bottom:15px;
+
+    width:48px;
+    height:48px;
+
+    border-radius:50%;
+
+    border:3px solid #173b70;
+
+    background:white;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:22px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.25);
+}
+
+
+/* =========================================================
+   MÓVIL
+   ========================================================= */
+
+@media(max-width:600px){
+
+    .star{
+        font-size:18px;
+    }
+
+    .sparkle{
+        font-size:12px;
+    }
+
+    .subtitle{
+        margin-top:25px;
+        padding:10px 17px;
+    }
+
+    .balloon{
+        width:34px;
+        height:44px;
+    }
+
 }
 
 </style>
@@ -927,56 +882,97 @@ body{
 <body>
 
 
-<!-- ===================================================
-     PANTALLA PRINCIPAL
-=================================================== -->
+<!-- =====================================================
+     PRIMERA PANTALLA
+     ===================================================== -->
 
-<div
-    class="toy-screen"
-    id="toyScreen"
->
-
-    <img
-        src="fondo toys story.png"
-        class="main-background"
-        alt="Fondo"
-    >
+<div class="start-screen" id="startScreen">
 
 
-    <!-- Estrellas -->
+    <!-- 30 ESTRELLAS -->
 
-    <div class="star star1"></div>
-    <div class="star star2"></div>
-    <div class="star star3"></div>
-    <div class="star star4"></div>
-    <div class="star star5"></div>
-    <div class="star star6"></div>
-    <div class="star star7"></div>
-    <div class="star star8"></div>
+    <span class="star">★</span>
+    <span class="star">✦</span>
+    <span class="star">★</span>
+    <span class="star">✦</span>
+    <span class="star">★</span>
+    <span class="star">✦</span>
+    <span class="star">★</span>
+    <span class="star">✦</span>
+    <span class="star">★</span>
+    <span class="star">✦</span>
+
+    <span class="star">★</span>
+    <span class="star">✦</span>
+    <span class="star">★</span>
+    <span class="star">✦</span>
+    <span class="star">★</span>
+    <span class="star">✦</span>
+    <span class="star">★</span>
+    <span class="star">✦</span>
+    <span class="star">★</span>
+    <span class="star">✦</span>
+
+    <span class="star">★</span>
+    <span class="star">✦</span>
+    <span class="star">★</span>
+    <span class="star">✦</span>
+    <span class="star">★</span>
+    <span class="star">✦</span>
+    <span class="star">★</span>
+    <span class="star">✦</span>
+    <span class="star">★</span>
+    <span class="star">✦</span>
 
 
-    <!-- Estrellas fugaces -->
+    <!-- DESTELLOS -->
 
-    <div
-        class="shooting-star shooting1">
+    <span class="sparkle sparkle1">✦</span>
+    <span class="sparkle sparkle2">✦</span>
+    <span class="sparkle sparkle3">✦</span>
+    <span class="sparkle sparkle4">✦</span>
+    <span class="sparkle sparkle5">✦</span>
+    <span class="sparkle sparkle6">✦</span>
+
+
+    <!-- ESTRELLAS FUGACES -->
+
+    <div class="shooting-star shooting1"></div>
+    <div class="shooting-star shooting2"></div>
+
+
+    <!-- ABRIR -->
+
+    <div class="title abrir">
+
+        <span class="a">A</span>
+        <span class="b">B</span>
+        <span class="r">R</span>
+        <span class="i">I</span>
+        <span class="r">R</span>
+
     </div>
 
-    <div
-        class="shooting-star shooting2">
+
+    <!-- INVITACIÓN -->
+
+    <div class="title invitacion">
+
+        <span class="i">I</span>
+        <span class="n">N</span>
+        <span class="v">V</span>
+        <span class="i">I</span>
+        <span class="t">T</span>
+        <span class="a">A</span>
+        <span class="c">C</span>
+        <span class="i">I</span>
+        <span class="o">Ó</span>
+        <span class="n">N</span>
+
     </div>
 
 
-    <!-- Abrir invitación -->
-
-    <div
-        class="open-title"
-        id="openInvitation"
-    >
-        ABRIR INVITACIÓN
-    </div>
-
-
-    <!-- Subtítulo -->
+    <!-- BURBUJA -->
 
     <div class="subtitle">
         ✨ ¡Una aventura te espera! ✨
@@ -986,57 +982,35 @@ body{
 
 
 
-<!-- ===================================================
-     PÁGINA 2
-=================================================== -->
+<!-- =====================================================
+     SEGUNDA PÁGINA
+     ===================================================== -->
 
-<div
-    class="page2"
-    id="page2"
->
-
-
-    <!-- Imagen original -->
+<div class="toy-screen" id="toyScreen">
 
     <img
         src="pagina 2.png"
         class="invitation-image"
-        alt="Invitación"
+        alt="Invitación de cumpleaños"
     >
 
 
-    <!-- Globos -->
+    <!-- =================================================
+         GLOBOS
+         ================================================= -->
 
-    <div
-        id="balloonContainer">
-    </div>
-
-
-    <!-- Estrellas -->
-
-    <div
-        id="starContainer">
-    </div>
+    <div id="balloonContainer"></div>
 
 
-    <!-- Brillo Lilypad -->
-
-    <div
-        class="lilypad-glow">
-    </div>
-
-
-    <!-- Zona táctil Lilypad -->
+    <!-- =================================================
+         ZONA INVISIBLE DE LILYPAD
+         ================================================= -->
 
     <a
         class="lilypad-link"
-
         href="https://maps.app.goo.gl/ErKKQbnFPtNkmCkM7"
-
         target="_blank"
-
         rel="noopener noreferrer"
-
         aria-label="Abrir ubicación en Google Maps"
     ></a>
 
@@ -1044,24 +1018,25 @@ body{
 
 
 
-<!-- ===================================================
+<!-- =====================================================
      MÚSICA
-=================================================== -->
+     ===================================================== -->
 
-<audio
-    id="music"
-    src="Toys Story.mp3"
-    loop
-    preload="auto">
+<audio id="music" loop>
+
+    <source
+        src="Toys Story.mp3"
+        type="audio/mpeg"
+    >
+
 </audio>
 
 
-<!-- Botón música -->
+<!-- BOTÓN DE MÚSICA -->
 
 <button
-    class="music-button"
-    id="musicButton"
-    aria-label="Controlar música"
+    class="music-btn"
+    id="musicBtn"
 >
     🔊
 </button>
@@ -1070,140 +1045,38 @@ body{
 
 <script>
 
-
 /* =====================================================
    ELEMENTOS
-===================================================== */
+   ===================================================== */
 
-const openInvitation =
-    document.getElementById(
-        "openInvitation"
-    );
-
-const toyScreen =
-    document.getElementById(
-        "toyScreen"
-    );
-
-const page2 =
-    document.getElementById(
-        "page2"
-    );
+const startScreen =
+    document.getElementById("startScreen");
 
 const music =
-    document.getElementById(
-        "music"
-    );
+    document.getElementById("music");
 
-const musicButton =
-    document.getElementById(
-        "musicButton"
-    );
+const musicBtn =
+    document.getElementById("musicBtn");
+
+const toyScreen =
+    document.getElementById("toyScreen");
 
 const balloonContainer =
-    document.getElementById(
-        "balloonContainer"
-    );
+    document.getElementById("balloonContainer");
 
-const starContainer =
-    document.getElementById(
-        "starContainer"
-    );
-
-
-/* =====================================================
-   VOLUMEN
-===================================================== */
-
-music.volume = 0.7;
+let opened = false;
 
 
 /* =====================================================
    ABRIR INVITACIÓN
-===================================================== */
+   ===================================================== */
 
-openInvitation.addEventListener(
-    "click",
-    function(){
+startScreen.addEventListener("click",function(){
 
-        /* Iniciar música */
+    if(opened) return;
 
-        music.play().catch(
-            function(){
+    opened = true;
 
-                console.log(
-                    "El navegador bloqueó el autoplay."
-                );
-
-            }
-        );
-
-
-        /* Confeti */
-
-        createConfetti();
-
-
-        /* Serpentinas */
-
-        createStreamers();
-
-
-        /* Mostrar página 2 */
-
-        setTimeout(
-            function(){
-
-                toyScreen.classList.add(
-                    "hide"
-                );
-
-                page2.classList.add(
-                    "show"
-                );
-
-            },
-            500
-        );
-
-    }
-);
-
-
-/* =====================================================
-   BOTÓN DE MÚSICA
-===================================================== */
-
-musicButton.addEventListener(
-    "click",
-    function(){
-
-        if(music.paused){
-
-            music.play();
-
-            musicButton.textContent =
-                "🔊";
-
-        }
-        else{
-
-            music.pause();
-
-            musicButton.textContent =
-                "🔇";
-
-        }
-
-    }
-);
-
-
-/* =====================================================
-   CONFETI
-===================================================== */
-
-function createConfetti(){
 
     const colors = [
 
@@ -1212,166 +1085,133 @@ function createConfetti(){
         "#42a5f5",
         "#66bb6a",
         "#ab47bc",
-        "#ff8a65",
-        "#ec407a"
+        "#ff8a65"
 
     ];
 
 
-    for(
-        let i=0;
-        i<90;
-        i++
-    ){
+    /* =================================================
+       CONFETI
+       ================================================= */
 
-        const piece =
-            document.createElement(
-                "div"
-            );
+    for(let i=0;i<70;i++){
 
+        const confetti =
+            document.createElement("div");
 
-        piece.className =
+        confetti.className =
             "confetti";
 
+        confetti.style.left =
+            Math.random()*100+"vw";
 
-        piece.style.left =
-            Math.random()*100 +
-            "vw";
+        confetti.style.top =
+            (-Math.random()*20)+"vh";
 
-
-        piece.style.top =
-            (-Math.random()*30) +
-            "vh";
-
-
-        piece.style.background =
+        confetti.style.background =
             colors[
                 Math.floor(
-                    Math.random() *
-                    colors.length
+                    Math.random()*colors.length
                 )
             ];
 
-
-        piece.style.animationDelay =
-            Math.random()*.8 +
-            "s";
-
-
-        piece.style.transform =
-            "rotate(" +
-            Math.random()*360 +
-            "deg)";
-
-
-        document.body.appendChild(
-            piece
+        confetti.style.setProperty(
+            "--x",
+            (Math.random()*300-150)+"px"
         );
 
+        confetti.style.animationDuration =
+            (2+Math.random()*1.5)+"s";
 
-        setTimeout(
-            function(){
+        document.body.appendChild(confetti);
 
-                piece.remove();
 
-            },
-            4000
-        );
+        setTimeout(()=>{
+
+            confetti.remove();
+
+        },4000);
 
     }
 
-}
 
+    /* =================================================
+       SERPENTINAS
+       ================================================= */
 
-/* =====================================================
-   SERPENTINAS
-===================================================== */
-
-function createStreamers(){
-
-    const colors = [
-
-        "#ef5350",
-        "#ffd83d",
-        "#42a5f5",
-        "#66bb6a",
-        "#ab47bc",
-        "#ff8a65",
-        "#ec407a"
-
-    ];
-
-
-    for(
-        let i=0;
-        i<18;
-        i++
-    ){
+    for(let i=0;i<25;i++){
 
         const streamer =
-            document.createElement(
-                "div"
-            );
-
+            document.createElement("div");
 
         streamer.className =
             "streamer";
 
-
         streamer.style.left =
-            Math.random()*100 +
-            "vw";
-
+            Math.random()*100+"vw";
 
         streamer.style.top =
-            (-Math.random()*20) +
-            "vh";
-
+            (-Math.random()*20)+"vh";
 
         streamer.style.background =
             colors[
                 Math.floor(
-                    Math.random() *
-                    colors.length
+                    Math.random()*colors.length
                 )
             ];
 
-
-        streamer.style.height =
-            (
-                60 +
-                Math.random()*80
-            ) +
-            "px";
-
-
-        streamer.style.animationDelay =
-            Math.random()*.8 +
-            "s";
-
-
-        document.body.appendChild(
-            streamer
+        streamer.style.setProperty(
+            "--x",
+            (Math.random()*250-125)+"px"
         );
 
+        streamer.style.animationDuration =
+            (2.5+Math.random()*1.5)+"s";
 
-        setTimeout(
-            function(){
+        document.body.appendChild(streamer);
 
-                streamer.remove();
 
-            },
-            4500
-        );
+        setTimeout(()=>{
+
+            streamer.remove();
+
+        },4500);
 
     }
 
-}
+
+    /* =================================================
+       MÚSICA
+       ================================================= */
+
+    music.volume = .7;
+
+    music.play().catch(()=>{});
+
+
+    /* =================================================
+       CAMBIO DE PANTALLA
+       ================================================= */
+
+    setTimeout(()=>{
+
+        startScreen.style.opacity = "0";
+
+
+        setTimeout(()=>{
+
+            startScreen.style.display = "none";
+
+        },500);
+
+    },500);
+
+});
 
 
 /* =====================================================
-   CREAR GLOBOS
-===================================================== */
+   GLOBOS
+   ===================================================== */
 
 function createBalloons(){
 
@@ -1388,25 +1228,16 @@ function createBalloons(){
     ];
 
 
-    /* Entre 1 y 3 globos */
+    /* Elegir aleatoriamente 1, 2 o 3 globos */
 
     const amount =
-        Math.floor(
-            Math.random()*3
-        ) + 1;
+        Math.floor(Math.random()*3)+1;
 
 
-    for(
-        let i=0;
-        i<amount;
-        i++
-    ){
+    for(let i=0;i<amount;i++){
 
         const balloon =
-            document.createElement(
-                "div"
-            );
-
+            document.createElement("div");
 
         balloon.className =
             "balloon";
@@ -1415,11 +1246,7 @@ function createBalloons(){
         /* Posición horizontal */
 
         balloon.style.left =
-            (
-                10 +
-                Math.random()*80
-            ) +
-            "%";
+            (10 + Math.random()*80)+"%";
 
 
         /* Color */
@@ -1427,220 +1254,88 @@ function createBalloons(){
         balloon.style.background =
             colors[
                 Math.floor(
-                    Math.random() *
-                    colors.length
+                    Math.random()*colors.length
                 )
             ];
 
 
-        /* Tamaño */
+        /* Tamaño aleatorio */
 
         const size =
-            30 +
-            Math.random()*15;
-
+            30 + Math.random()*15;
 
         balloon.style.width =
-            size +
-            "px";
-
+            size+"px";
 
         balloon.style.height =
-            (
-                size*1.25
-            ) +
-            "px";
+            (size*1.25)+"px";
 
 
-        /* Velocidad */
+        /* Velocidad ligeramente diferente */
 
         balloon.style.animationDuration =
-            (
-                6.5 +
-                Math.random()*2
-            ) +
-            "s";
+            (6.5 + Math.random()*2)+"s";
 
 
-        balloonContainer.appendChild(
-            balloon
-        );
+        balloonContainer.appendChild(balloon);
 
 
-        /* Eliminar */
+        /* Eliminar cuando termine */
 
-        setTimeout(
-            function(){
+        setTimeout(()=>{
 
-                balloon.remove();
+            balloon.remove();
 
-            },
-            9500
-        );
+        },9500);
 
     }
 
 
-    /* Próximo grupo:
-       4 a 6 segundos */
+    /* Próximo grupo entre 4 y 6 segundos */
 
     const nextTime =
-        4000 +
-        Math.random()*2000;
+        4000 + Math.random()*2000;
 
-
-    setTimeout(
-        createBalloons,
-        nextTime
-    );
+    setTimeout(createBalloons,nextTime);
 
 }
 
 
 /* =====================================================
-   CREAR ESTRELLA MÁGICA
-===================================================== */
+   INICIAR GLOBOS
+   ===================================================== */
 
-function createMagicStar(){
+setTimeout(()=>{
 
-    const star =
-        document.createElement(
-            "div"
-        );
+    createBalloons();
 
-
-    star.className =
-        "magic-star";
-
-
-    /* Posición aleatoria */
-
-    star.style.left =
-        (
-            5 +
-            Math.random()*90
-        ) +
-        "%";
-
-
-    star.style.top =
-        (
-            5 +
-            Math.random()*88
-        ) +
-        "%";
-
-
-    /* Tamaño */
-
-    const size =
-        4 +
-        Math.random()*6;
-
-
-    star.style.width =
-        size +
-        "px";
-
-
-    star.style.height =
-        size +
-        "px";
-
-
-    /* Duración */
-
-    star.style.animationDuration =
-        (
-            2 +
-            Math.random()*2
-        ) +
-        "s";
-
-
-    /* Pequeño retraso */
-
-    star.style.animationDelay =
-        (
-            Math.random()*.5
-        ) +
-        "s";
-
-
-    starContainer.appendChild(
-        star
-    );
-
-
-    /* Eliminar */
-
-    setTimeout(
-        function(){
-
-            star.remove();
-
-        },
-        4500
-    );
-
-}
+},3500);
 
 
 /* =====================================================
-   GENERADOR DE ESTRELLAS
-===================================================== */
+   BOTÓN DE MÚSICA
+   ===================================================== */
 
-function starLoop(){
+musicBtn.addEventListener("click",function(e){
 
-    /* Entre 1 y 3 estrellas */
-
-    const amount =
-        Math.floor(
-            Math.random()*3
-        ) + 1;
+    e.stopPropagation();
 
 
-    for(
-        let i=0;
-        i<amount;
-        i++
-    ){
+    if(music.paused){
 
-        createMagicStar();
+        music.play();
+
+        musicBtn.textContent = "🔊";
+
+    }else{
+
+        music.pause();
+
+        musicBtn.textContent = "🔇";
 
     }
 
-
-    /* Nuevas estrellas
-       cada 1.5 - 3 segundos */
-
-    const nextTime =
-        1500 +
-        Math.random()*1500;
-
-
-    setTimeout(
-        starLoop,
-        nextTime
-    );
-
-}
-
-
-/* =====================================================
-   INICIAR EFECTOS
-===================================================== */
-
-setTimeout(
-    function(){
-
-        createBalloons();
-
-        starLoop();
-
-    },
-    2000
-);
+});
 
 </script>
 
