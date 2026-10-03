@@ -2,9 +2,9 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<title>Invitación Toy Story</title>
+<title>Invitación de cumpleaños</title>
 
 <style>
 
@@ -22,9 +22,9 @@ html,body{
 }
 
 
-/* =========================================
+/* =========================================================
    PRIMERA PANTALLA
-========================================= */
+   ========================================================= */
 
 .start-screen{
     position:fixed;
@@ -44,16 +44,19 @@ html,body{
     text-align:center;
     overflow:hidden;
     cursor:pointer;
+
+    transition:opacity .5s ease;
 }
 
 
-/* =========================================
-   30 ESTRELLAS
-========================================= */
+/* =========================================================
+   ESTRELLAS
+   ========================================================= */
 
 .star{
     position:absolute;
     z-index:2;
+
     color:white;
     font-size:22px;
 
@@ -64,85 +67,6 @@ html,body{
 
     animation:twinkle 2s infinite ease-in-out;
 }
-
-
-/* Tamaños */
-
-.star:nth-child(1){font-size:16px;}
-.star:nth-child(2){font-size:24px;}
-.star:nth-child(3){font-size:19px;}
-.star:nth-child(4){font-size:28px;}
-.star:nth-child(5){font-size:17px;}
-
-.star:nth-child(6){font-size:25px;}
-.star:nth-child(7){font-size:15px;}
-.star:nth-child(8){font-size:22px;}
-.star:nth-child(9){font-size:18px;}
-.star:nth-child(10){font-size:27px;}
-
-.star:nth-child(11){font-size:20px;}
-.star:nth-child(12){font-size:16px;}
-.star:nth-child(13){font-size:26px;}
-.star:nth-child(14){font-size:18px;}
-.star:nth-child(15){font-size:24px;}
-
-.star:nth-child(16){font-size:15px;}
-.star:nth-child(17){font-size:28px;}
-.star:nth-child(18){font-size:19px;}
-.star:nth-child(19){font-size:23px;}
-.star:nth-child(20){font-size:17px;}
-
-.star:nth-child(21){font-size:26px;}
-.star:nth-child(22){font-size:18px;}
-.star:nth-child(23){font-size:24px;}
-.star:nth-child(24){font-size:16px;}
-.star:nth-child(25){font-size:27px;}
-
-.star:nth-child(26){font-size:20px;}
-.star:nth-child(27){font-size:25px;}
-.star:nth-child(28){font-size:17px;}
-.star:nth-child(29){font-size:29px;}
-.star:nth-child(30){font-size:19px;}
-
-
-/* Posiciones */
-
-.star:nth-child(1){top:5%;left:8%;animation-delay:.1s;}
-.star:nth-child(2){top:9%;left:28%;animation-delay:.5s;}
-.star:nth-child(3){top:6%;right:14%;animation-delay:1s;}
-.star:nth-child(4){top:16%;right:4%;animation-delay:1.4s;}
-.star:nth-child(5){top:20%;left:5%;animation-delay:.7s;}
-
-.star:nth-child(6){top:25%;left:18%;animation-delay:1.2s;}
-.star:nth-child(7){top:28%;left:40%;animation-delay:.3s;}
-.star:nth-child(8){top:23%;right:28%;animation-delay:1.6s;}
-.star:nth-child(9){top:31%;right:8%;animation-delay:.8s;}
-.star:nth-child(10){top:38%;left:4%;animation-delay:1.1s;}
-
-.star:nth-child(11){top:42%;left:15%;animation-delay:.2s;}
-.star:nth-child(12){top:45%;right:17%;animation-delay:1.7s;}
-.star:nth-child(13){top:40%;right:5%;animation-delay:.6s;}
-.star:nth-child(14){top:52%;left:7%;animation-delay:1.3s;}
-.star:nth-child(15){top:55%;right:7%;animation-delay:.4s;}
-
-.star:nth-child(16){top:62%;left:12%;animation-delay:1.5s;}
-.star:nth-child(17){top:65%;left:28%;animation-delay:.9s;}
-.star:nth-child(18){top:61%;right:25%;animation-delay:.1s;}
-.star:nth-child(19){top:68%;right:11%;animation-delay:1.8s;}
-.star:nth-child(20){top:72%;left:5%;animation-delay:.5s;}
-
-.star:nth-child(21){top:77%;left:18%;animation-delay:1.1s;}
-.star:nth-child(22){top:75%;right:29%;animation-delay:.7s;}
-.star:nth-child(23){top:82%;right:7%;animation-delay:1.4s;}
-.star:nth-child(24){top:87%;left:9%;animation-delay:.3s;}
-.star:nth-child(25){top:91%;left:32%;animation-delay:1.6s;}
-
-.star:nth-child(26){top:88%;right:20%;animation-delay:.8s;}
-.star:nth-child(27){top:94%;right:5%;animation-delay:1.2s;}
-.star:nth-child(28){top:12%;left:48%;animation-delay:.4s;}
-.star:nth-child(29){top:35%;left:88%;animation-delay:1.5s;}
-.star:nth-child(30){top:58%;left:90%;animation-delay:.9s;}
-
 
 @keyframes twinkle{
 
@@ -155,13 +79,52 @@ html,body{
         transform:scale(1.25) rotate(20deg);
         opacity:1;
     }
-
 }
 
 
-/* =========================================
+/* POSICIONES DE LAS 30 ESTRELLAS */
+
+.star:nth-child(1){top:6%;left:8%;font-size:18px;animation-delay:.2s;}
+.star:nth-child(2){top:11%;left:24%;font-size:13px;animation-delay:1.1s;}
+.star:nth-child(3){top:5%;left:43%;font-size:24px;animation-delay:.5s;}
+.star:nth-child(4){top:14%;left:68%;font-size:15px;animation-delay:1.7s;}
+.star:nth-child(5){top:8%;left:91%;font-size:20px;animation-delay:.8s;}
+
+.star:nth-child(6){top:22%;left:5%;font-size:14px;animation-delay:1.4s;}
+.star:nth-child(7){top:25%;left:18%;font-size:22px;animation-delay:.3s;}
+.star:nth-child(8){top:20%;left:82%;font-size:16px;animation-delay:1.8s;}
+.star:nth-child(9){top:29%;left:95%;font-size:22px;animation-delay:.6s;}
+
+.star:nth-child(10){top:37%;left:7%;font-size:17px;animation-delay:1.3s;}
+.star:nth-child(11){top:34%;left:27%;font-size:12px;animation-delay:.9s;}
+.star:nth-child(12){top:39%;left:73%;font-size:20px;animation-delay:1.6s;}
+.star:nth-child(13){top:42%;left:90%;font-size:14px;animation-delay:.4s;}
+
+.star:nth-child(14){top:52%;left:4%;font-size:22px;animation-delay:1.2s;}
+.star:nth-child(15){top:49%;left:19%;font-size:15px;animation-delay:.7s;}
+.star:nth-child(16){top:55%;left:82%;font-size:20px;animation-delay:1.9s;}
+.star:nth-child(17){top:51%;left:94%;font-size:13px;animation-delay:.1s;}
+
+.star:nth-child(18){top:64%;left:8%;font-size:16px;animation-delay:1.5s;}
+.star:nth-child(19){top:61%;left:25%;font-size:21px;animation-delay:.6s;}
+.star:nth-child(20){top:66%;left:76%;font-size:14px;animation-delay:1.1s;}
+.star:nth-child(21){top:70%;left:92%;font-size:22px;animation-delay:.3s;}
+
+.star:nth-child(22){top:77%;left:5%;font-size:14px;animation-delay:1.8s;}
+.star:nth-child(23){top:73%;left:20%;font-size:19px;animation-delay:.5s;}
+.star:nth-child(24){top:78%;left:81%;font-size:15px;animation-delay:1.4s;}
+.star:nth-child(25){top:82%;left:95%;font-size:20px;animation-delay:.8s;}
+
+.star:nth-child(26){top:89%;left:10%;font-size:17px;animation-delay:1.6s;}
+.star:nth-child(27){top:85%;left:30%;font-size:13px;animation-delay:.4s;}
+.star:nth-child(28){top:91%;left:70%;font-size:21px;animation-delay:1.2s;}
+.star:nth-child(29){top:87%;left:85%;font-size:15px;animation-delay:.7s;}
+.star:nth-child(30){top:94%;left:48%;font-size:18px;animation-delay:1.9s;}
+
+
+/* =========================================================
    DESTELLOS
-========================================= */
+   ========================================================= */
 
 .sparkle{
     position:absolute;
@@ -180,41 +143,40 @@ html,body{
 }
 
 .sparkle1{
-    top:29%;
-    left:30%;
-    animation-delay:.4s;
+    top:18%;
+    left:35%;
+    animation-delay:.5s;
 }
 
 .sparkle2{
-    top:34%;
-    right:28%;
+    top:30%;
+    left:65%;
     animation-delay:1.2s;
 }
 
 .sparkle3{
-    top:47%;
-    left:25%;
+    top:45%;
+    left:12%;
     animation-delay:2s;
 }
 
 .sparkle4{
-    top:48%;
-    right:23%;
+    top:57%;
+    left:88%;
     animation-delay:.8s;
 }
 
 .sparkle5{
-    top:58%;
-    left:34%;
+    top:75%;
+    left:35%;
     animation-delay:1.6s;
 }
 
 .sparkle6{
-    top:57%;
-    right:34%;
-    animation-delay:2.4s;
+    top:84%;
+    left:65%;
+    animation-delay:2.3s;
 }
-
 
 @keyframes sparkleAppear{
 
@@ -227,13 +189,12 @@ html,body{
         opacity:1;
         transform:scale(1.2) rotate(45deg);
     }
-
 }
 
 
-/* =========================================
+/* =========================================================
    ESTRELLAS FUGACES
-========================================= */
+   ========================================================= */
 
 .shooting-star{
     position:absolute;
@@ -243,7 +204,6 @@ html,body{
     height:5px;
 
     border-radius:50%;
-
     background:white;
 
     box-shadow:
@@ -260,7 +220,6 @@ html,body{
     content:"";
 
     position:absolute;
-
     top:50%;
     right:3px;
 
@@ -292,7 +251,6 @@ html,body{
     animation-delay:7s;
 }
 
-
 @keyframes shooting{
 
     0%{
@@ -313,21 +271,20 @@ html,body{
         left:110%;
         opacity:0;
     }
-
 }
 
 
-/* =========================================
+/* =========================================================
    TÍTULO
-========================================= */
+   ========================================================= */
 
 .title{
     position:relative;
     z-index:5;
 
     font-family:Impact,"Arial Black",sans-serif;
-
     font-weight:900;
+
     text-transform:uppercase;
 
     line-height:.9;
@@ -349,175 +306,144 @@ html,body{
 }
 
 
-/* =========================================
-   MOVIMIENTO INDEPENDIENTE
-========================================= */
+/* =========================================================
+   ANIMACIÓN INDIVIDUAL DE LAS LETRAS
+   ========================================================= */
 
 .abrir span:nth-child(1){
-    animation:letter1 3.2s ease-in-out infinite;
+    animation:letter1 2.5s ease-in-out infinite;
 }
 
 .abrir span:nth-child(2){
-    animation:letter2 2.7s ease-in-out infinite;
+    animation:letter2 2.8s ease-in-out infinite;
 }
 
 .abrir span:nth-child(3){
-    animation:letter3 3.6s ease-in-out infinite;
+    animation:letter3 2.3s ease-in-out infinite;
 }
 
 .abrir span:nth-child(4){
-    animation:letter4 2.9s ease-in-out infinite;
+    animation:letter4 2.7s ease-in-out infinite;
 }
 
 .abrir span:nth-child(5){
-    animation:letter5 3.4s ease-in-out infinite;
+    animation:letter5 2.4s ease-in-out infinite;
 }
 
-
 .invitacion span:nth-child(1){
-    animation:letter2 3.1s ease-in-out infinite;
+    animation:letter6 2.7s ease-in-out infinite;
 }
 
 .invitacion span:nth-child(2){
-    animation:letter5 2.8s ease-in-out infinite;
+    animation:letter7 2.4s ease-in-out infinite;
 }
 
 .invitacion span:nth-child(3){
-    animation:letter1 3.5s ease-in-out infinite;
+    animation:letter8 2.8s ease-in-out infinite;
 }
 
 .invitacion span:nth-child(4){
-    animation:letter4 2.6s ease-in-out infinite;
+    animation:letter9 2.5s ease-in-out infinite;
 }
 
 .invitacion span:nth-child(5){
-    animation:letter3 3.3s ease-in-out infinite;
+    animation:letter10 2.9s ease-in-out infinite;
 }
 
 .invitacion span:nth-child(6){
-    animation:letter5 2.9s ease-in-out infinite;
+    animation:letter11 2.3s ease-in-out infinite;
 }
 
 .invitacion span:nth-child(7){
-    animation:letter2 3.7s ease-in-out infinite;
+    animation:letter12 2.6s ease-in-out infinite;
 }
 
 .invitacion span:nth-child(8){
-    animation:letter1 2.8s ease-in-out infinite;
+    animation:letter13 2.4s ease-in-out infinite;
 }
 
 .invitacion span:nth-child(9){
-    animation:letter4 3.4s ease-in-out infinite;
+    animation:letter14 2.8s ease-in-out infinite;
 }
 
 .invitacion span:nth-child(10){
-    animation:letter3 2.7s ease-in-out infinite;
+    animation:letter6 2.6s ease-in-out infinite;
 }
-
 
 @keyframes letter1{
-
-    0%,100%{
-        transform:rotate(-5deg) translateY(0);
-    }
-
-    25%{
-        transform:rotate(1deg) translateY(3px);
-    }
-
-    50%{
-        transform:rotate(6deg) translateY(7px);
-    }
-
-    75%{
-        transform:rotate(0deg) translateY(2px);
-    }
+    0%,100%{transform:rotate(-3deg) translateY(0);}
+    50%{transform:rotate(4deg) translateY(-8px);}
 }
-
 
 @keyframes letter2{
-
-    0%,100%{
-        transform:rotate(4deg) translateY(2px);
-    }
-
-    25%{
-        transform:rotate(-4deg) translateY(6px);
-    }
-
-    50%{
-        transform:rotate(-7deg) translateY(1px);
-    }
-
-    75%{
-        transform:rotate(2deg) translateY(5px);
-    }
+    0%,100%{transform:rotate(3deg) translateY(0);}
+    50%{transform:rotate(-5deg) translateY(7px);}
 }
-
 
 @keyframes letter3{
-
-    0%,100%{
-        transform:rotate(-2deg) translateY(5px);
-    }
-
-    25%{
-        transform:rotate(6deg) translateY(1px);
-    }
-
-    50%{
-        transform:rotate(-5deg) translateY(8px);
-    }
-
-    75%{
-        transform:rotate(3deg) translateY(3px);
-    }
+    0%,100%{transform:rotate(-2deg) translateY(0);}
+    50%{transform:rotate(5deg) translateY(-6px);}
 }
-
 
 @keyframes letter4{
-
-    0%,100%{
-        transform:rotate(6deg) translateY(1px);
-    }
-
-    25%{
-        transform:rotate(0deg) translateY(7px);
-    }
-
-    50%{
-        transform:rotate(-6deg) translateY(3px);
-    }
-
-    75%{
-        transform:rotate(4deg) translateY(8px);
-    }
+    0%,100%{transform:rotate(4deg) translateY(0);}
+    50%{transform:rotate(-4deg) translateY(8px);}
 }
-
 
 @keyframes letter5{
+    0%,100%{transform:rotate(-4deg) translateY(0);}
+    50%{transform:rotate(3deg) translateY(-7px);}
+}
 
-    0%,100%{
-        transform:rotate(-4deg) translateY(4px);
-    }
+@keyframes letter6{
+    0%,100%{transform:rotate(-3deg) translateY(0);}
+    50%{transform:rotate(3deg) translateY(-6px);}
+}
 
-    25%{
-        transform:rotate(7deg) translateY(0);
-    }
+@keyframes letter7{
+    0%,100%{transform:rotate(3deg) translateY(0);}
+    50%{transform:rotate(-4deg) translateY(6px);}
+}
 
-    50%{
-        transform:rotate(2deg) translateY(8px);
-    }
+@keyframes letter8{
+    0%,100%{transform:rotate(-2deg) translateY(0);}
+    50%{transform:rotate(4deg) translateY(-7px);}
+}
 
-    75%{
-        transform:rotate(-7deg) translateY(2px);
-    }
+@keyframes letter9{
+    0%,100%{transform:rotate(4deg) translateY(0);}
+    50%{transform:rotate(-3deg) translateY(7px);}
+}
+
+@keyframes letter10{
+    0%,100%{transform:rotate(-3deg) translateY(0);}
+    50%{transform:rotate(4deg) translateY(-6px);}
+}
+
+@keyframes letter11{
+    0%,100%{transform:rotate(3deg) translateY(0);}
+    50%{transform:rotate(-4deg) translateY(7px);}
+}
+
+@keyframes letter12{
+    0%,100%{transform:rotate(-4deg) translateY(0);}
+    50%{transform:rotate(3deg) translateY(-6px);}
+}
+
+@keyframes letter13{
+    0%,100%{transform:rotate(2deg) translateY(0);}
+    50%{transform:rotate(-4deg) translateY(7px);}
+}
+
+@keyframes letter14{
+    0%,100%{transform:rotate(-3deg) translateY(0);}
+    50%{transform:rotate(4deg) translateY(-6px);}
 }
 
 
-/* =========================================
-   TAMAÑOS DEL TÍTULO
-========================================= */
+/* =========================================================
+   TAMAÑOS
+   ========================================================= */
 
 .abrir{
     position:relative;
@@ -530,60 +456,31 @@ html,body{
 }
 
 
-/* =========================================
+/* =========================================================
    COLORES
-========================================= */
+   ========================================================= */
 
-.title .a{
-    color:#ef5350;
-}
-
-.title .b{
-    color:#ffd83d;
-}
-
-.title .r{
-    color:#42a5f5;
-}
-
-.title .i{
-    color:#66bb6a;
-}
-
-.title .n{
-    color:#ff8a65;
-}
-
-.title .v{
-    color:#ab47bc;
-}
-
-.title .t{
-    color:#42a5f5;
-}
-
-.title .c{
-    color:#ffd83d;
-}
-
-.title .o{
-    color:#ef5350;
-}
+.title .a{color:#ef5350;}
+.title .b{color:#ffd83d;}
+.title .r{color:#42a5f5;}
+.title .i{color:#66bb6a;}
+.title .n{color:#ff8a65;}
+.title .v{color:#ab47bc;}
+.title .t{color:#42a5f5;}
+.title .c{color:#ffd83d;}
+.title .o{color:#ef5350;}
 
 
-/* =========================================
-   BRILLO SOBRE ABRIR
-========================================= */
+/* =========================================================
+   BRILLO
+   ========================================================= */
 
 .abrir::after{
-
     content:"";
 
     position:absolute;
-
     top:0;
     bottom:0;
-
     left:-25%;
 
     width:18%;
@@ -598,12 +495,10 @@ html,body{
     transform:skewX(-20deg);
 
     opacity:0;
-
     pointer-events:none;
 
     animation:shineTitle 6s ease-in-out infinite;
 }
-
 
 @keyframes shineTitle{
 
@@ -628,29 +523,25 @@ html,body{
 }
 
 
-/* =========================================
+/* =========================================================
    BURBUJA
-========================================= */
+   ========================================================= */
 
 .subtitle{
-
     position:relative;
     z-index:5;
 
     margin-top:30px;
 
     background:white;
-
     color:#173b70;
 
     padding:12px 22px;
 
     border:4px solid #173b70;
-
     border-radius:22px;
 
     font-size:clamp(15px,4vw,23px);
-
     font-weight:bold;
 
     box-shadow:
@@ -659,15 +550,12 @@ html,body{
     animation:bubbleFloat 3s ease-in-out infinite;
 }
 
-
 .subtitle::after{
-
     content:"";
 
     position:absolute;
 
     bottom:-15px;
-
     left:50%;
 
     transform:translateX(-50%);
@@ -677,19 +565,15 @@ html,body{
 
     border-left:13px solid transparent;
     border-right:13px solid transparent;
-
     border-top:16px solid #173b70;
 }
 
-
 .subtitle::before{
-
     content:"";
 
     position:absolute;
 
     bottom:-9px;
-
     left:50%;
 
     transform:translateX(-50%);
@@ -701,10 +585,8 @@ html,body{
 
     border-left:9px solid transparent;
     border-right:9px solid transparent;
-
     border-top:12px solid white;
 }
-
 
 @keyframes bubbleFloat{
 
@@ -718,23 +600,18 @@ html,body{
 }
 
 
-/* =========================================
+/* =========================================================
    SEGUNDA PÁGINA
-   AHORA FUNCIONA COMO LA PRIMERA
-========================================= */
+   ========================================================= */
 
 .toy-screen{
-
     position:fixed;
-
     inset:0;
-
     z-index:5;
 
     background:#f48fb1;
 
     display:flex;
-
     justify-content:center;
     align-items:center;
 
@@ -745,9 +622,7 @@ html,body{
     transition:opacity .5s ease;
 }
 
-
 .invitation-image{
-
     width:100%;
     height:100%;
 
@@ -755,18 +630,15 @@ html,body{
     object-position:center;
 
     border-radius:0;
-
     box-shadow:none;
-
 }
 
 
-/* =========================================
+/* =========================================================
    CONFETI
-========================================= */
+   ========================================================= */
 
 .confetti{
-
     position:fixed;
 
     z-index:30;
@@ -778,7 +650,6 @@ html,body{
 
     animation:confettiFall 2.5s linear forwards;
 }
-
 
 @keyframes confettiFall{
 
@@ -801,12 +672,11 @@ html,body{
 }
 
 
-/* =========================================
+/* =========================================================
    SERPENTINAS
-========================================= */
+   ========================================================= */
 
 .streamer{
-
     position:fixed;
 
     z-index:29;
@@ -820,7 +690,6 @@ html,body{
 
     animation:streamerFall 3s ease-in forwards;
 }
-
 
 @keyframes streamerFall{
 
@@ -843,12 +712,11 @@ html,body{
 }
 
 
-/* =========================================
+/* =========================================================
    BOTÓN DE MÚSICA
-========================================= */
+   ========================================================= */
 
 .music-btn{
-
     position:fixed;
 
     z-index:50;
@@ -866,7 +734,6 @@ html,body{
     background:white;
 
     display:flex;
-
     justify-content:center;
     align-items:center;
 
@@ -879,9 +746,9 @@ html,body{
 }
 
 
-/* =========================================
+/* =========================================================
    MÓVIL
-========================================= */
+   ========================================================= */
 
 @media(max-width:600px){
 
@@ -897,7 +764,6 @@ html,body{
         margin-top:25px;
         padding:10px 17px;
     }
-
 }
 
 </style>
@@ -907,9 +773,9 @@ html,body{
 <body>
 
 
-<!-- =========================================
+<!-- =====================================================
      PRIMERA PANTALLA
-========================================= -->
+     ===================================================== -->
 
 <div class="start-screen" id="startScreen">
 
@@ -921,7 +787,6 @@ html,body{
     <span class="star">★</span>
     <span class="star">✦</span>
     <span class="star">★</span>
-
     <span class="star">✦</span>
     <span class="star">★</span>
     <span class="star">✦</span>
@@ -933,7 +798,6 @@ html,body{
     <span class="star">★</span>
     <span class="star">✦</span>
     <span class="star">★</span>
-
     <span class="star">✦</span>
     <span class="star">★</span>
     <span class="star">✦</span>
@@ -945,7 +809,6 @@ html,body{
     <span class="star">★</span>
     <span class="star">✦</span>
     <span class="star">★</span>
-
     <span class="star">✦</span>
     <span class="star">★</span>
     <span class="star">✦</span>
@@ -1006,13 +869,13 @@ html,body{
         ✨ ¡Una aventura te espera! ✨
     </div>
 
-
 </div>
 
 
-<!-- =========================================
+
+<!-- =====================================================
      SEGUNDA PÁGINA
-========================================= -->
+     ===================================================== -->
 
 <div class="toy-screen" id="toyScreen">
 
@@ -1025,9 +888,10 @@ html,body{
 </div>
 
 
-<!-- =========================================
+
+<!-- =====================================================
      MÚSICA
-========================================= -->
+     ===================================================== -->
 
 <audio id="music" loop>
 
@@ -1043,13 +907,18 @@ html,body{
 
 <button
     class="music-btn"
-    id="musicBtn">
+    id="musicBtn"
+>
     🔊
 </button>
 
 
+
 <script>
 
+/* =====================================================
+   ELEMENTOS
+   ===================================================== */
 
 const startScreen =
     document.getElementById("startScreen");
@@ -1060,13 +929,12 @@ const music =
 const musicBtn =
     document.getElementById("musicBtn");
 
-
 let opened = false;
 
 
-/* =========================================
+/* =====================================================
    ABRIR INVITACIÓN
-========================================= */
+   ===================================================== */
 
 startScreen.addEventListener("click",function(){
 
@@ -1087,7 +955,9 @@ startScreen.addEventListener("click",function(){
     ];
 
 
-    /* CONFETI */
+    /* =================================================
+       CONFETI
+       ================================================= */
 
     for(let i=0;i<70;i++){
 
@@ -1118,7 +988,6 @@ startScreen.addEventListener("click",function(){
         confetti.style.animationDuration =
             (2+Math.random()*1.5)+"s";
 
-
         document.body.appendChild(confetti);
 
 
@@ -1131,7 +1000,9 @@ startScreen.addEventListener("click",function(){
     }
 
 
-    /* SERPENTINAS */
+    /* =================================================
+       SERPENTINAS
+       ================================================= */
 
     for(let i=0;i<25;i++){
 
@@ -1162,7 +1033,6 @@ startScreen.addEventListener("click",function(){
         streamer.style.animationDuration =
             (2.5+Math.random()*1.5)+"s";
 
-
         document.body.appendChild(streamer);
 
 
@@ -1175,23 +1045,27 @@ startScreen.addEventListener("click",function(){
     }
 
 
-    /* MÚSICA */
+    /* =================================================
+       MÚSICA
+       ================================================= */
 
-    music.volume=.7;
+    music.volume = .7;
 
     music.play().catch(()=>{});
 
 
-    /* CAMBIO DE PÁGINA */
+    /* =================================================
+       CAMBIO DE PANTALLA
+       ================================================= */
 
     setTimeout(()=>{
 
-        startScreen.style.opacity="0";
+        startScreen.style.opacity = "0";
 
 
         setTimeout(()=>{
 
-            startScreen.style.display="none";
+            startScreen.style.display = "none";
 
         },500);
 
@@ -1200,9 +1074,9 @@ startScreen.addEventListener("click",function(){
 });
 
 
-/* =========================================
+/* =====================================================
    BOTÓN DE MÚSICA
-========================================= */
+   ===================================================== */
 
 musicBtn.addEventListener("click",function(e){
 
@@ -1213,13 +1087,13 @@ musicBtn.addEventListener("click",function(e){
 
         music.play();
 
-        musicBtn.textContent="🔊";
+        musicBtn.textContent = "🔊";
 
     }else{
 
         music.pause();
 
-        musicBtn.textContent="🔇";
+        musicBtn.textContent = "🔇";
 
     }
 
