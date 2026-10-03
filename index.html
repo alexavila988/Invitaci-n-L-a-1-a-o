@@ -641,13 +641,6 @@ html,body{
 .lilypad-link{
     position:absolute;
 
-    /*
-       ZONA INVISIBLE SOBRE LILYPAD
-
-       Parte inferior central de la invitación.
-       Se puede ajustar fácilmente si es necesario.
-    */
-
     left:35%;
     top:70%;
     width:30%;
@@ -661,6 +654,86 @@ html,body{
 
     -webkit-tap-highlight-color:transparent;
     tap-highlight-color:transparent;
+}
+
+
+/* =========================================================
+   GLOBOS
+   ========================================================= */
+
+.balloon{
+    position:absolute;
+
+    z-index:12;
+
+    bottom:-100px;
+
+    width:38px;
+    height:48px;
+
+    border-radius:50% 50% 45% 45%;
+
+    pointer-events:none;
+
+    opacity:0;
+
+    animation:balloonUp 7s linear forwards;
+}
+
+.balloon::before{
+    content:"";
+
+    position:absolute;
+
+    top:7px;
+    left:9px;
+
+    width:10px;
+    height:15px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.35);
+
+    transform:rotate(25deg);
+}
+
+.balloon::after{
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:-55px;
+
+    width:1px;
+    height:55px;
+
+    background:rgba(80,80,80,.7);
+
+    transform:translateX(-50%);
+}
+
+@keyframes balloonUp{
+
+    0%{
+        bottom:-100px;
+        opacity:0;
+    }
+
+    8%{
+        opacity:1;
+    }
+
+    90%{
+        opacity:1;
+    }
+
+    100%{
+        bottom:110vh;
+        opacity:0;
+    }
 }
 
 
@@ -795,6 +868,11 @@ html,body{
         padding:10px 17px;
     }
 
+    .balloon{
+        width:34px;
+        height:44px;
+    }
+
 }
 
 </style>
@@ -916,10 +994,17 @@ html,body{
         alt="Invitación de cumpleaños"
     >
 
-    <!--
-        ZONA INVISIBLE DE LILYPAD
-        Al tocar esta zona se abre Google Maps.
-    -->
+
+    <!-- =================================================
+         GLOBOS
+         ================================================= -->
+
+    <div id="balloonContainer"></div>
+
+
+    <!-- =================================================
+         ZONA INVISIBLE DE LILYPAD
+         ================================================= -->
 
     <a
         class="lilypad-link"
@@ -972,6 +1057,12 @@ const music =
 
 const musicBtn =
     document.getElementById("musicBtn");
+
+const toyScreen =
+    document.getElementById("toyScreen");
+
+const balloonContainer =
+    document.getElementById("balloonContainer");
 
 let opened = false;
 
@@ -1116,6 +1207,109 @@ startScreen.addEventListener("click",function(){
     },500);
 
 });
+
+
+/* =====================================================
+   GLOBOS
+   ===================================================== */
+
+function createBalloons(){
+
+    const colors = [
+
+        "#ef5350",
+        "#ffd83d",
+        "#42a5f5",
+        "#66bb6a",
+        "#ab47bc",
+        "#ff8a65",
+        "#ec407a"
+
+    ];
+
+
+    /* Elegir aleatoriamente 1, 2 o 3 globos */
+
+    const amount =
+        Math.floor(Math.random()*3)+1;
+
+
+    for(let i=0;i<amount;i++){
+
+        const balloon =
+            document.createElement("div");
+
+        balloon.className =
+            "balloon";
+
+
+        /* Posición horizontal */
+
+        balloon.style.left =
+            (10 + Math.random()*80)+"%";
+
+
+        /* Color */
+
+        balloon.style.background =
+            colors[
+                Math.floor(
+                    Math.random()*colors.length
+                )
+            ];
+
+
+        /* Tamaño aleatorio */
+
+        const size =
+            30 + Math.random()*15;
+
+        balloon.style.width =
+            size+"px";
+
+        balloon.style.height =
+            (size*1.25)+"px";
+
+
+        /* Velocidad ligeramente diferente */
+
+        balloon.style.animationDuration =
+            (6.5 + Math.random()*2)+"s";
+
+
+        balloonContainer.appendChild(balloon);
+
+
+        /* Eliminar cuando termine */
+
+        setTimeout(()=>{
+
+            balloon.remove();
+
+        },9500);
+
+    }
+
+
+    /* Próximo grupo entre 4 y 6 segundos */
+
+    const nextTime =
+        4000 + Math.random()*2000;
+
+    setTimeout(createBalloons,nextTime);
+
+}
+
+
+/* =====================================================
+   INICIAR GLOBOS
+   ===================================================== */
+
+setTimeout(()=>{
+
+    createBalloons();
+
+},3500);
 
 
 /* =====================================================
